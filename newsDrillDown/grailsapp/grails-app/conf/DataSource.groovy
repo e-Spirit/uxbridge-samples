@@ -53,7 +53,7 @@ if (System.properties['config.location']) {
 				driverClassName = "org.postgresql.Driver"
 				username = "postgres"
 				password = "postgres"
-	            url = "jdbc:postgresql://localhost/uxbridge_news"
+	            url = "jdbc:postgresql://localhost/news_drilldown"
 	            pooled = true
 	            properties {
 	               maxActive = -1

@@ -105,7 +105,7 @@
 	<bean id="dataSource"
 		  class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="org.postgresql.Driver"/>
-		<property name="jdbcUrl" value="jdbc:postgresql://localhost/uxbridge"/>
+		<property name="jdbcUrl" value="jdbc:postgresql://localhost/news_widget"/>
 		<property name="user" value="postgres"/>
 		<property name="password" value="postgres"/>
 	</bean>

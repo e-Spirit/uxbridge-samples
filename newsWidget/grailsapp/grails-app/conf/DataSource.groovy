@@ -77,7 +77,7 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:postgresql://localhost/widgetexample?useUnicode=yes&characterEncoding=UTF-8"
+			url = "jdbc:postgresql://localhost/news_widget?useUnicode=yes&characterEncoding=UTF-8"
 			driverClassName = "org.postgresql.Driver"
 			dialect = org.hibernate.dialect.PostgreSQLDialect
 			username = "postgres"
