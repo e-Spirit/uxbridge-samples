@@ -313,9 +313,6 @@ public class NewsHandler extends AbstractHandler {
         EntityManager em = null;
         EntityTransaction tx = null;
         try {
-            em = emf.createEntityManager();
-            tx = em.getTransaction();
-            tx.begin();
             News news = buildNews(entity);
             List<Long> categories = new ArrayList<Long>();
 
@@ -326,22 +323,30 @@ public class NewsHandler extends AbstractHandler {
             if (news.getCategories() != null && !news.getCategories().isEmpty()) {
                 for (NewsCategory cat : news.getCategories()) {
                     cat = saveNewsCategory(cat);
-                    categories.add(cat.getFs_id());
+                    if (!categories.contains(cat.getFs_id())) {
+                    	categories.add(cat.getFs_id());
+                    }
                 }
                 news.setCategories(new ArrayList<NewsCategory>());
             }
 
+            
+            em = emf.createEntityManager();
+            tx = em.getTransaction();
+            tx.begin();
+
             // 2. save the newsdrilldown
             news = saveNews(news, em);
-
+            
+            
             // 3. read all categories to the newsdrilldown
             if (!categories.isEmpty()) {
                 for (Long cat : categories) {
-                    news.getCategories().add(
-                            getNewsCategory(cat, news.getLanguage(), em));
+                	NewsCategory ncat = getNewsCategory(cat, news.getLanguage(), em);
+                	news.getCategories().add(ncat);
                 }
             }
-
+            
 
             tx.commit();
 

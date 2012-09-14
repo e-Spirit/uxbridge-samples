@@ -35,6 +35,10 @@ class Category {
 	static belongsTo = MetaCategory
 	static hasMany = [news:News,metaCategories:MetaCategory]
 
+	static mapping = {
+		news joinTable: [name: "category_news", key: 'category_id' ]
+	}
+	
 	static constraints = {
 		name(blank: false)
 		metaCategories(nullable: false, blank: false)

@@ -70,7 +70,6 @@ environments {
 				username = "postgres"
 				password = "postgres"
 			}
-		}
 	}
 
 
@@ -83,5 +82,6 @@ environments {
 			username = "postgres"
 			password = "postgres"
 		}
+	}
 	}
 }

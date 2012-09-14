@@ -1,5 +1,7 @@
 package com.espirit.moddev.examples.uxbridge.newsdrilldown
 
+import org.junit.experimental.categories.Categories;
+
 import com.sun.java.util.jar.pack.ConstantPool.Index;
 
 /*
@@ -47,6 +49,8 @@ class News implements Comparable<News> {
 		table "newsdrilldown"
 		fs_id index: "fsidindex1,IDX_fsid_lang_1"
 		language index : "IDX_fsid_lang_1"
+		
+		categories joinTable: [name: "category_news", key: 'news_id' ]
 	}
 
 	static belongsTo = Category

@@ -103,9 +103,11 @@ public class News implements Serializable {
 	@JoinTable(
 			name = "category_news",
 			joinColumns = @JoinColumn(name = "news_id"),
-			inverseJoinColumns = @JoinColumn(name = "category_id")
+			inverseJoinColumns = @JoinColumn(name = "category_id"),
+			uniqueConstraints = {@UniqueConstraint(columnNames={"news_id", "category_id"})}
+			
 	)
-	@Fetch(FetchMode.JOIN)
+	@Fetch(FetchMode.SELECT)
 	@BatchSize(size= 5)
 	private List<NewsCategory> categories;
 
