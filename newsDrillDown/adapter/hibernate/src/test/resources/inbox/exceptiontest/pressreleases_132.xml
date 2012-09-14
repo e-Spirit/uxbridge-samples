@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uxb_entity uuid="132" language="DE" destinations="postgres,mongodb"
+	command="add" objectType="news_article">
+	<uxb_content>
+		<fs_id>132</fs_id>
+		<language>DE</language>
+		<url>/fs5preview/preview/84429/site/DE/current/84436/85167/contentId=132
+		</url>
+		<date>2012-01-20T00:00:00+0100</date>
+		<headline>Neue Produktreihe</headline>
+		<subHeadline>Dünnschichtmodule auf dem Vormarsch</subHeadline>
+		<teaser>Bei stark schwankenden Wetterverhältnissen sind die
+			Dünnschichtmodule unserer neuen Produktreihe besonders
+			empfehlenswert. Ob bei hohen Temperaturen oder diffusen
+			Lichtverhältnissen die Module weisen beständig eine gleichmäßige
+			Produktionskapazität auf. Durch die amorphe Siliziumschicht werden
+			Wirkungsgrade von etwa 20 % erzielt, da u.a. Light-Soaking-Effekte
+			verhindert werden.</teaser>
+		<content></content>
+		<metaCategories>
+
+
+			<metaCategory>
+				<fs_id>3778</fs_id>
+				<name>Produkte</name>
+				<categories>
+
+					<category>
+						<fs_id>3781</fs_id>
+						<name>Netzanschlusseinheiten</name>
+					</category>
+
+					<category>
+						<fs_id>3782</fs_id>
+						<name>Dünnschichtmodule</name>
+					</category>
+
+					<category>
+						<fs_id>3784</fs_id>
+						<name>Solar</name>
+					</category>
+
+					<category>
+						<fs_id>3786</fs_id>
+						<name>Neuentwicklung</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+
+			<metaCategory>
+				<fs_id>3777</fs_id>
+				<name>Firma</name>
+				<categories>
+
+					<category>
+						<fs_id>3780</fs_id>
+						<name>Stellen</name>
+					</category>
+
+					<category>
+						<fs_id>3783</fs_id>
+						<name>Geschäftsführung</name>
+					</category>
+
+					<category>
+						<fs_id>3786</fs_id>
+						<name>Neuentwicklung</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>

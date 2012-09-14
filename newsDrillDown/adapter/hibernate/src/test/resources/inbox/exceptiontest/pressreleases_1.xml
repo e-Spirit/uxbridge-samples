@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uxb_entity uuid="132" language="EN" destinations="postgres,mongodb"
+	command="add" objectType="news_article">
+	<uxb_content>
+		<fs_id>132</fs_id>
+		<language>EN</language>
+		<url>/fs5preview/preview/84429/site/EN/current/84436/85167/contentId=132
+		</url>
+		<date>2012-01-20T00:00:00+0100</date>
+		<headline>New product range</headline>
+		<subHeadline>Thin film modules are gaining ground</subHeadline>
+		<teaser>The thin film modules in our new product range are
+			particularly recommended for highly fluctuating weather conditions.
+			Whether in high temperatures or diffuse light conditions, the modules
+			have a consistently uniform production capacity. The amorphous
+			silicon layer enables efficiencies of around 20 % to be achieved as,
+			among other things, light soaking effects are prevented.</teaser>
+		<content></content>
+
+		<metaCategories>
+
+
+			<metaCategory>
+				<fs_id>3778</fs_id>
+				<name>Products</name>
+				<categories>
+
+					<category>
+						<fs_id>3781</fs_id>
+						<name>Connection Units</name>
+					</category>
+
+					<category>
+						<fs_id>3782</fs_id>
+						<name>Thin film modules</name>
+					</category>
+
+					<category>
+						<fs_id>3784</fs_id>
+						<name>Solar</name>
+					</category>
+
+					<category>
+						<fs_id>3786</fs_id>
+						<name>New development</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+
+			<metaCategory>
+				<fs_id>3777</fs_id>
+				<name>Company</name>
+				<categories>
+
+					<category>
+						<fs_id>3780</fs_id>
+						<name>Jobs</name>
+					</category>
+
+					<category>
+						<fs_id>3783</fs_id>
+						<name>Management</name>
+					</category>
+
+					<category>
+						<fs_id>3786</fs_id>
+						<name>New development</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>
