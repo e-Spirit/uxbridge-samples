@@ -1,0 +1,195 @@
+/*
+ * //**********************************************************************
+ * UX-Bridge NewsDrillDown
+ * %%
+ * Copyright (C) 2012 e-Spirit AG
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * *********************************************************************//*
+ */
+.clearfix {
+	clear: both;
+}
+
+/* list-news (main.gsp) */
+#list-news {
+	width: 978px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* newsExample */
+#newsExample {
+	float: left;
+}
+
+/* pagination */
+.newsPagination {
+	width: 501px;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #CCC;
+	text-align: center;
+}
+
+.newsPagination a {
+	color: black;
+	text-decoration: none;
+}
+
+.newsPagination a:hover {
+	text-decoration: underline;
+}
+
+.newsPagination a.prevLink {
+	float: left;
+}
+
+.newsPagination a.nextLink {
+	float: right;
+}
+
+.newsPagination a.step, .newsPagination span.currentStep {
+	padding: 0 10px 0 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.newsPagination span.currentStep {
+	font-weight: bold;
+}
+
+/* newsblock */
+.newsBlock {
+	width: 501px;
+	border-top: 1px solid #CCC;
+	padding: 15px 0 12px 0;
+}
+
+.newsBlock .date, .newsBlock .category, .newsBlock .headline, .newsBlock .subheadline {
+	line-height: 1.4em;
+}
+
+.newsBlock .date, .newsBlock {
+	color: #858585;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+
+.newsBlock .headline {
+	color: #CF6100;
+	font-size: 14px;
+	line-height: 1.2em;
+	margin-top: 3px;
+	margin-bottom: 5px;
+}
+
+.newsBlock .subheadline {
+	margin-top: 0px;
+	font-size: 12px;
+}
+
+.newsBlock .content {
+	font-size: 12px;
+}
+
+.newsBlock .content a {
+	color: black;
+	text-decoration: none;
+}
+
+.newsBlock .content a:hover {
+	text-decoration: underline;
+}
+
+/* grails-messages */
+.message {
+	font-size: 0.8em;
+	line-height: 2;
+	margin: 1em 2em;
+	padding: 0;
+	background: #f3f3ff;
+	border: 1px solid #b2d1ff;
+	color: #006dba;
+	   -moz-box-shadow: 0 0 0.25em #b2d1ff;
+	-webkit-box-shadow: 0 0 0.25em #b2d1ff;
+	        box-shadow: 0 0 0.25em #b2d1ff;
+	background: transparent url(../images/skin/information.png) 0.5em 50% no-repeat;
+	text-indent: 2.2em;
+}
+
+
+/* design for drilldown menu */
+.metaCategoryList {
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+.categoryList {
+	list-style-type: none;
+/* 	margin-left: 10px; */
+}
+
+#drillDownColumn {
+	float: left;
+	margin-left: 5px;
+	font-size: 10pt;
+}
+
+.paginationReplace {
+	width: 501px;
+}
+
+.category {
+	color: #858585;
+	font-size: 11px;
+}
+
+.newsBlock .content {
+	margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

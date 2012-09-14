@@ -1,0 +1,781 @@
+
+d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate>set MAVEN_OPTS=-Xmx2048m -XX:MaxPermSize=512m -Djline.terminal=jline.UnsupportedTerminal -XX:-UseGCOverheadLimit 
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building uxbridge.samples.news.hibernate 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ uxbridge.samples.news.hibernate ---
+[INFO] Deleting d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ uxbridge.samples.news.hibernate ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ uxbridge.samples.news.hibernate ---
+[INFO] Compiling 11 source files to d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ uxbridge.samples.news.hibernate ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ uxbridge.samples.news.hibernate ---
+[INFO] Compiling 4 source files to d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\test-classes
+[WARNING] \projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\java\com\espirit\moddev\examples\uxbridge\news\test\NewsITCase.java:[75,44] [unchecked] unchecked conversion
+[WARNING] \projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\java\com\espirit\moddev\examples\uxbridge\news\test\NewsITCase.java:[82,51] [unchecked] unchecked conversion
+[WARNING] \projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\java\com\espirit\moddev\examples\uxbridge\news\test\NewsITCase.java:[89,56] [unchecked] unchecked conversion
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ uxbridge.samples.news.hibernate ---
+[INFO] Surefire report directory: d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+There are no tests to run.
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ uxbridge.samples.news.hibernate ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [uxbridge.samples.news.hibernate] in [d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\uxbridge.samples.news.hibernate-1]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\main\webapp]
+[INFO] Webapp assembled in [583 msecs]
+[INFO] Building war: d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\uxbridge.samples.news.hibernate-1.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:copy-resources (replace-pom-placeholder) @ uxbridge.samples.news.hibernate ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.9:integration-test (default) @ uxbridge.samples.news.hibernate ---
+[INFO] Failsafe report directory: d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\failsafe-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.espirit.moddev.examples.uxbridge.newsdrilldown.test.CommandITCase
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] CommandITCase                  INFO  Testing: testDelete(com.espirit.moddev.examples.uxbridge.newsdrilldown.test.CommandITCase)
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-1) is starting
+[                          main] ManagementStrategyFactory      INFO  JMX is disabled.
+[                          main] DefaultTypeConverter           INFO  Loaded 173 type converters
+[                          main] DefaultCamelContext            INFO  Total 0 routes, of which 0 is started.
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-1) started in 0.134 seconds
+[                 JMX connector] ManagementContext              INFO  JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+[                          main] PListStore                     INFO  PListStore:[d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\activemq-data\localhost\tmp_storage ] started
+[                          main] BrokerService                  INFO  Using Persistence Adapter: KahaDBPersistenceAdapter[d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\activemq-data\localhost\KahaDB]
+[                          main] MessageDatabase                INFO  KahaDB is version 4
+[                          main] MessageDatabase                INFO  Recovering from the journal ...
+[                          main] MessageDatabase                INFO  Recovery replayed 1 operations from the journal in 0.018 seconds.
+[                          main] BrokerService                  INFO  ActiveMQ 5.6.0 JMS Message Broker (localhost) is starting
+[                          main] BrokerService                  INFO  For help or more information please see: http://activemq.apache.org/
+[                          main] TransportServerThreadSupport   INFO  Listening for connections at: tcp://widget.dev:61500
+[                          main] TransportConnector             INFO  Connector tcp://widget.dev:61500 Started
+[                          main] BrokerService                  INFO  ActiveMQ JMS Message Broker (localhost, ID:CHARA-65360-1345796258196-0:1) started
+[                          main] ileSystemXmlApplicationContext INFO  Refreshing org.apache.xbean.spring.context.FileSystemXmlApplicationContext@32ca113e: startup date [Fri Aug 24 10:17:38 CEST 2012]; root of context hierarchy
+[                          main] XBeanXmlBeanDefinitionReader   INFO  Loading XML bean definitions from file [d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\resources\applicationContext.xml]
+[                          main] ileSystemXmlApplicationContext INFO  Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[                          main] ileSystemXmlApplicationContext INFO  Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[                          main] MLog                           INFO  MLog clients using log4j logging.
+[                          main] C3P0Registry                   INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+[                          main] Version                        INFO  Hibernate Commons Annotations 3.2.0.Final
+[                          main] Environment                    INFO  Hibernate 3.6.8.Final
+[                          main] Environment                    INFO  hibernate.properties not found
+[                          main] Environment                    INFO  Bytecode provider name : javassist
+[                          main] Environment                    INFO  using JDK 1.4 java.sql.Timestamp handling
+[                          main] Version                        INFO  Hibernate EntityManager 3.6.8.Final
+[                          main] Ejb3Configuration              INFO  Processing PersistenceUnitInfo [
+	name: camel
+	...]
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.News
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.News on table news
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsCategory
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsCategory on table category
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory on table metaCategory
+[                          main] Version                        INFO  Hibernate Validator 3.1.0.GA
+[                          main] ateSearchEventListenerRegister INFO  Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[                          main] ConnectionProviderFactory      INFO  Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[                          main] edDataSourceConnectionProvider INFO  Using provided datasource
+[                          main] AbstractPoolBackedDataSource   INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqvgf8poc3a3quovb10|2cfb6861, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> org.hsqldb.jdbcDriver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqvgf8poc3a3quovb10|2cfb6861, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:hsqldb:mem:testdb, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[                          main] Dialect                        INFO  Using dialect: org.hibernate.dialect.HSQLDialect
+[                          main] JdbcSupportLoader              INFO  Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[                          main] SettingsFactory                INFO  Database ->
+       name : HSQL Database Engine
+    version : 2.2.4
+      major : 2
+      minor : 2
+[                          main] SettingsFactory                INFO  Driver ->
+       name : HSQL Database Engine Driver
+    version : 2.2.4
+      major : 2
+      minor : 2
+[                          main] TransactionFactoryFactory      INFO  Using default transaction strategy (direct JDBC transactions)
+[                          main] ransactionManagerLookupFactory INFO  No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[                          main] SettingsFactory                INFO  Automatic flush during beforeCompletion(): disabled
+[                          main] SettingsFactory                INFO  Automatic session close at end of transaction: disabled
+[                          main] SettingsFactory                INFO  JDBC batch size: 15
+[                          main] SettingsFactory                INFO  JDBC batch updates for versioned data: disabled
+[                          main] SettingsFactory                INFO  Scrollable result sets: enabled
+[                          main] SettingsFactory                INFO  JDBC3 getGeneratedKeys(): enabled
+[                          main] SettingsFactory                INFO  Connection release mode: auto
+[                          main] SettingsFactory                INFO  Default batch fetch size: 1
+[                          main] SettingsFactory                INFO  Generate SQL with comments: disabled
+[                          main] SettingsFactory                INFO  Order SQL updates by primary key: disabled
+[                          main] SettingsFactory                INFO  Order SQL inserts for batching: disabled
+[                          main] SettingsFactory                INFO  Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[                          main] ASTQueryTranslatorFactory      INFO  Using ASTQueryTranslatorFactory
+[                          main] SettingsFactory                INFO  Query language substitutions: {}
+[                          main] SettingsFactory                INFO  JPA-QL strict compliance: enabled
+[                          main] SettingsFactory                INFO  Second-level cache: enabled
+[                          main] SettingsFactory                INFO  Query cache: disabled
+[                          main] SettingsFactory                INFO  Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[                          main] SettingsFactory                INFO  Optimize cache for minimal puts: disabled
+[                          main] SettingsFactory                INFO  Structured second-level cache entries: disabled
+[                          main] SettingsFactory                INFO  Echoing all SQL to stdout
+[                          main] SettingsFactory                INFO  Statistics: disabled
+[                          main] SettingsFactory                INFO  Deleted entity synthetic identifier rollback: disabled
+[                          main] SettingsFactory                INFO  Default entity-mode: pojo
+[                          main] SettingsFactory                INFO  Named query checking : enabled
+[                          main] SettingsFactory                INFO  Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[                          main] SessionFactoryImpl             INFO  building session factory
+[                          main] BasicTypeRegistry              INFO  Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1ed9f356
+[                          main] BasicTypeRegistry              INFO  Type registration [blob] overrides previous : org.hibernate.type.BlobType@76f6a2ec
+[                          main] BasicTypeRegistry              INFO  Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@76f6a2ec
+[                          main] BasicTypeRegistry              INFO  Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@3a4270f8
+[                          main] BasicTypeRegistry              INFO  Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@6006c7a9
+[                          main] BasicTypeRegistry              INFO  Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@5d1e597f
+[                          main] BasicTypeRegistry              INFO  Type registration [clob] overrides previous : org.hibernate.type.ClobType@7385d09b
+[                          main] BasicTypeRegistry              INFO  Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@7385d09b
+[                          main] BasicTypeRegistry              INFO  Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@5642ab5d
+[                          main] SessionFactoryObjectFactory    INFO  Not binding factory to JNDI, no JNDI name configured
+[                          main] SchemaUpdate                   INFO  Running hbm2ddl schema update
+[                          main] SchemaUpdate                   INFO  fetching database metadata
+[                          main] SchemaUpdate                   INFO  updating schema
+[                          main] DatabaseMetadata               INFO  table not found: category
+[                          main] DatabaseMetadata               INFO  table not found: category_metaCategory
+[                          main] DatabaseMetadata               INFO  table not found: metaCategory
+[                          main] DatabaseMetadata               INFO  table not found: news
+[                          main] DatabaseMetadata               INFO  table not found: news_category
+[                          main] DatabaseMetadata               INFO  table not found: category
+[                          main] DatabaseMetadata               INFO  table not found: category_metaCategory
+[                          main] DatabaseMetadata               INFO  table not found: metaCategory
+[                          main] DatabaseMetadata               INFO  table not found: news
+[                          main] DatabaseMetadata               INFO  table not found: news_category
+[                          main] SchemaUpdate                   INFO  schema update complete
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is starting
+[                          main] ManagementStrategyFactory      INFO  JMX is disabled.
+[                          main] DefaultTypeConverter           INFO  Loaded 173 type converters
+[                          main] XPathBuilder                   INFO  Created default XPathFactory com.sun.org.apache.xpath.internal.jaxp.XPathFactoryImpl@21f72309
+[                          main] SpringCamelContext             INFO  Route: uxbridge-commands started and consuming from: Endpoint[jms://topic:BUS_OUT]
+[                          main] SpringCamelContext             INFO  Total 1 routes, of which 1 is started.
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) started in 0.419 seconds
+[                          main] SpringCamelContext             INFO  Route: route1 started and consuming from: Endpoint[jms://topic:BUS_OUT]
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is starting
+[                          main] SpringCamelContext             INFO  Total 2 routes, of which 2 is started.
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) started in 0.000 seconds
+Hibernate: select count(news0_.headline) as col_0_0_ from news news0_ limit ?
+Hibernate: select news0_.id as id0_, news0_.content as content0_, news0_.date as date0_, news0_.fs_id as fs4_0_, news0_.headline as headline0_, news0_.language as language0_, news0_.subheadline as subheadl7_0_, news0_.teaser as teaser0_, news0_.url as url0_, news0_.version as version0_ from news news0_ where news0_.fs_id=132
+loading content from d:\projekte\uxbridge-samples\newsdrilldown\adapter\hibernate
+loading content from file d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\resources\inbox\add\pressreleasesdetails_132.xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<uxb_entity uuid="132" language="DE" destinations="postgres,mongodb" command="add" createTime="0" finishTime="0" startTime="0">
+    <uxb_content>
+        <fs_id>132</fs_id>
+        <language>DE</language>
+        <url>
+			/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=256
+		</url>
+        <date>2010-01-02T00:24:21+0100</date>
+        <headline>
+			Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen ausgezeichnet
+		</headline>
+        <subHeadline>Nun werden auch die Dünnschichtmodule geehrt
+		</subHeadline>
+        <teaser>
+			Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem Solarpreis der
+			Stadt Sonningen ausgezeichnet. In diesem Jahr stehen die
+			Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen Akt
+			Ende des Jahres von der Geschäftsführung und der Belegschaft von
+			Mithras Energy entgegen genommen wurde. Mit der neu entwickelten
+			Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert
+			werden.
+		</teaser>
+        <content>
+		</content>
+        <metaCategories>
+            <metaCategory>
+                <fs_id>4096</fs_id>
+                <name>Produkte</name>
+                <categories>
+                    <category>
+                        <fs_id>4160</fs_id>
+                        <name>Netzanschlusseinheiten</name>
+                    </category>
+                    <category>
+                        <fs_id>4161</fs_id>
+                        <name>Dünnschichtmodule</name>
+                    </category>
+                    <category>
+                        <fs_id>4163</fs_id>
+                        <name>Solar</name>
+                    </category>
+                    <category>
+                        <fs_id>4164</fs_id>
+                        <name>Neuentwicklungen</name>
+                    </category>
+                </categories>
+            </metaCategory>
+        </metaCategories>
+    </uxb_content>
+</uxb_entity>
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: insert into metaCategory (id, fs_id, language, name, version) values (default, ?, ?, ?, ?)
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: insert into category (id, fs_id, language, name, version) values (default, ?, ?, ?, ?)
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: insert into category (id, fs_id, language, name, version) values (default, ?, ?, ?, ?)
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: insert into category (id, fs_id, language, name, version) values (default, ?, ?, ?, ?)
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id2_, newsmetaca0_.fs_id as fs2_2_, newsmetaca0_.language as language2_, newsmetaca0_.name as name2_, newsmetaca0_.version as version2_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: insert into category (id, fs_id, language, name, version) values (default, ?, ?, ?, ?)
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select news0_.id as id0_, news0_.content as content0_, news0_.date as date0_, news0_.fs_id as fs4_0_, news0_.headline as headline0_, news0_.language as language0_, news0_.subheadline as subheadl7_0_, news0_.teaser as teaser0_, news0_.url as url0_, news0_.version as version0_ from news news0_ where news0_.fs_id=?
+Hibernate: insert into news (id, content, date, fs_id, headline, language, subheadline, teaser, url, version) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id1_, newscatego0_.fs_id as fs2_1_, newscatego0_.language as language1_, newscatego0_.name as name1_, newscatego0_.version as version1_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: select news0_.id as id0_, news0_.content as content0_, news0_.date as date0_, news0_.fs_id as fs4_0_, news0_.headline as headline0_, news0_.language as language0_, news0_.subheadline as subheadl7_0_, news0_.teaser as teaser0_, news0_.url as url0_, news0_.version as version0_ from news news0_ where news0_.fs_id=132
+Hibernate: select count(news0_.headline) as col_0_0_ from news news0_ limit ?
+loading content from d:\projekte\uxbridge-samples\newsdrilldown\adapter\hibernate
+loading content from file d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\resources\inbox\delete\pressreleasesdetails_132.xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<uxb_entity uuid="132" language="DE" destinations="postgres" command="delete" createTime="0" finishTime="0" startTime="0"/>
+Hibernate: select news0_.id as id0_, news0_.content as content0_, news0_.date as date0_, news0_.fs_id as fs4_0_, news0_.headline as headline0_, news0_.language as language0_, news0_.subheadline as subheadl7_0_, news0_.teaser as teaser0_, news0_.url as url0_, news0_.version as version0_ from news news0_ where news0_.fs_id=? and news0_.language=?
+Hibernate: select news0_.id as id0_, news0_.content as content0_, news0_.date as date0_, news0_.fs_id as fs4_0_, news0_.headline as headline0_, news0_.language as language0_, news0_.subheadline as subheadl7_0_, news0_.teaser as teaser0_, news0_.url as url0_, news0_.version as version0_ from news news0_ where news0_.fs_id=? and news0_.language=? limit ?
+Hibernate: delete from news_category where news_id=?
+Hibernate: delete from news where id=?
+Hibernate: select news0_.id as id0_, news0_.content as content0_, news0_.date as date0_, news0_.fs_id as fs4_0_, news0_.headline as headline0_, news0_.language as language0_, news0_.subheadline as subheadl7_0_, news0_.teaser as teaser0_, news0_.url as url0_, news0_.version as version0_ from news news0_ where news0_.fs_id=132
+Hibernate: select count(news0_.headline) as col_0_0_ from news news0_ limit ?
+[                          main] BrokerService                  INFO  ActiveMQ Message Broker (localhost, ID:CHARA-65360-1345796258196-0:1) is shutting down
+[read #0 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Setup of JMS message listener invoker failed for destination 'BUS_OUT' - trying to recover. Cause: java.io.EOFException
+[                          main] TransportConnector             INFO  Connector tcp://widget.dev:61500 Stopped
+[                          main] PListStore                     INFO  PListStore:[d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\activemq-data\localhost\tmp_storage ] stopped
+[                          main] KahaDBStore                    INFO  Stopping async queue tasks
+[                          main] KahaDBStore                    INFO  Stopping async topic tasks
+[                          main] KahaDBStore                    INFO  Stopped KahaDB
+[read #1 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Setup of JMS message listener invoker failed for destination 'BUS_OUT' - trying to recover. Cause: java.io.EOFException
+[                          main] BrokerService                  INFO  ActiveMQ JMS Message Broker (localhost, ID:CHARA-65360-1345796258196-0:1) stopped
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is shutting down
+[                          main] DefaultShutdownStrategy        INFO  Starting to graceful shutdown 2 routes (timeout 300 seconds)
+[read #0 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Could not refresh JMS Connection for destination 'BUS_OUT' - retrying in 5000 ms. Cause: Could not connect to broker URL: tcp://localhost:61500. Reason: java.net.ConnectException: Connection refused: connect
+[read #1 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Could not refresh JMS Connection for destination 'BUS_OUT' - retrying in 5000 ms. Cause: Could not connect to broker URL: tcp://localhost:61500. Reason: java.net.ConnectException: Connection refused: connect
+[text) thread #2 - ShutdownTask] DefaultShutdownStrategy        INFO  Route: route1 shutdown complete, was consuming from: Endpoint[jms://topic:BUS_OUT]
+[text) thread #2 - ShutdownTask] DefaultShutdownStrategy        INFO  Route: uxbridge-commands shutdown complete, was consuming from: Endpoint[jms://topic:BUS_OUT]
+[                          main] DefaultShutdownStrategy        INFO  Graceful shutdown of 2 routes completed in 5 seconds
+[                          main] DefaultTypeConverter           INFO  TypeConverterRegistry utilization[attempts=41, hits=33, misses=8, failures=0] mappings[total=173, misses=2]
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is shutdown in 5.757 seconds. Uptime 38.476 seconds.
+[                          main] SessionFactoryImpl             INFO  closing
+[                          main] ileSystemXmlApplicationContext INFO  Closing org.apache.xbean.spring.context.FileSystemXmlApplicationContext@32ca113e: startup date [Fri Aug 24 10:17:38 CEST 2012]; root of context hierarchy
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] CommandITCase                  INFO  Testing done: testDelete(com.espirit.moddev.examples.uxbridge.newsdrilldown.test.CommandITCase)
+[                          main] CommandITCase                  INFO  Took: 44.180 seconds (44180 millis)
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-1) is shutting down
+[                          main] DefaultTypeConverter           INFO  TypeConverterRegistry utilization[attempts=2, hits=2, misses=0, failures=0] mappings[total=173, misses=0]
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-1) is shutdown in 0.001 seconds. Uptime 44.320 seconds.
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] CommandITCase                  INFO  Testing: testAdd(com.espirit.moddev.examples.uxbridge.newsdrilldown.test.CommandITCase)
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-3) is starting
+[                          main] ManagementStrategyFactory      INFO  JMX is disabled.
+[                          main] DefaultTypeConverter           INFO  Loaded 173 type converters
+[                          main] DefaultCamelContext            INFO  Total 0 routes, of which 0 is started.
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-3) started in 0.017 seconds
+[                 JMX connector] ManagementContext              INFO  JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+[                          main] PListStore                     INFO  PListStore:[d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\activemq-data\localhost\tmp_storage ] started
+[                          main] BrokerService                  INFO  Using Persistence Adapter: KahaDBPersistenceAdapter[d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\activemq-data\localhost\KahaDB]
+[                          main] MessageDatabase                INFO  KahaDB is version 4
+[                          main] MessageDatabase                INFO  Recovering from the journal ...
+[                          main] MessageDatabase                INFO  Recovery replayed 1 operations from the journal in 0.001 seconds.
+[                          main] BrokerService                  INFO  ActiveMQ 5.6.0 JMS Message Broker (localhost) is starting
+[                          main] BrokerService                  INFO  For help or more information please see: http://activemq.apache.org/
+[                          main] TransportServerThreadSupport   INFO  Listening for connections at: tcp://widget.dev:61500
+[                          main] TransportConnector             INFO  Connector tcp://widget.dev:61500 Started
+[                          main] BrokerService                  INFO  ActiveMQ JMS Message Broker (localhost, ID:CHARA-65360-1345796258196-0:2) started
+[                          main] ileSystemXmlApplicationContext INFO  Refreshing org.apache.xbean.spring.context.FileSystemXmlApplicationContext@32095860: startup date [Fri Aug 24 10:18:21 CEST 2012]; root of context hierarchy
+[                          main] XBeanXmlBeanDefinitionReader   INFO  Loading XML bean definitions from file [d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\resources\applicationContext.xml]
+[                          main] ileSystemXmlApplicationContext INFO  Bean 'org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0' of type [class org.springframework.transaction.annotation.AnnotationTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[                          main] ileSystemXmlApplicationContext INFO  Bean 'org.springframework.transaction.config.internalTransactionAdvisor' of type [class org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[                          main] Ejb3Configuration              INFO  Processing PersistenceUnitInfo [
+	name: camel
+	...]
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.News
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.News on table news
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsCategory
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsCategory on table category
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory on table metaCategory
+[                          main] ateSearchEventListenerRegister INFO  Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[                          main] ConnectionProviderFactory      INFO  Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[                          main] edDataSourceConnectionProvider INFO  Using provided datasource
+[                          main] AbstractPoolBackedDataSource   INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqvgf8poc3a3quovb10|50050418, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> org.hsqldb.jdbcDriver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqvgf8poc3a3quovb10|50050418, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:hsqldb:mem:testdb, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[                          main] Dialect                        INFO  Using dialect: org.hibernate.dialect.HSQLDialect
+[                          main] JdbcSupportLoader              INFO  Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[                          main] SettingsFactory                INFO  Database ->
+       name : HSQL Database Engine
+    version : 2.2.4
+      major : 2
+      minor : 2
+[                          main] SettingsFactory                INFO  Driver ->
+       name : HSQL Database Engine Driver
+    version : 2.2.4
+      major : 2
+      minor : 2
+[                          main] TransactionFactoryFactory      INFO  Using default transaction strategy (direct JDBC transactions)
+[                          main] ransactionManagerLookupFactory INFO  No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[                          main] SettingsFactory                INFO  Automatic flush during beforeCompletion(): disabled
+[                          main] SettingsFactory                INFO  Automatic session close at end of transaction: disabled
+[                          main] SettingsFactory                INFO  JDBC batch size: 15
+[                          main] SettingsFactory                INFO  JDBC batch updates for versioned data: disabled
+[                          main] SettingsFactory                INFO  Scrollable result sets: enabled
+[                          main] SettingsFactory                INFO  JDBC3 getGeneratedKeys(): enabled
+[                          main] SettingsFactory                INFO  Connection release mode: auto
+[                          main] SettingsFactory                INFO  Default batch fetch size: 1
+[                          main] SettingsFactory                INFO  Generate SQL with comments: disabled
+[                          main] SettingsFactory                INFO  Order SQL updates by primary key: disabled
+[                          main] SettingsFactory                INFO  Order SQL inserts for batching: disabled
+[                          main] SettingsFactory                INFO  Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[                          main] ASTQueryTranslatorFactory      INFO  Using ASTQueryTranslatorFactory
+[                          main] SettingsFactory                INFO  Query language substitutions: {}
+[                          main] SettingsFactory                INFO  JPA-QL strict compliance: enabled
+[                          main] SettingsFactory                INFO  Second-level cache: enabled
+[                          main] SettingsFactory                INFO  Query cache: disabled
+[                          main] SettingsFactory                INFO  Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[                          main] SettingsFactory                INFO  Optimize cache for minimal puts: disabled
+[                          main] SettingsFactory                INFO  Structured second-level cache entries: disabled
+[                          main] SettingsFactory                INFO  Echoing all SQL to stdout
+[                          main] SettingsFactory                INFO  Statistics: disabled
+[                          main] SettingsFactory                INFO  Deleted entity synthetic identifier rollback: disabled
+[                          main] SettingsFactory                INFO  Default entity-mode: pojo
+[                          main] SettingsFactory                INFO  Named query checking : enabled
+[                          main] SettingsFactory                INFO  Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[                          main] SessionFactoryImpl             INFO  building session factory
+[                          main] BasicTypeRegistry              INFO  Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1ed9f356
+[                          main] BasicTypeRegistry              INFO  Type registration [blob] overrides previous : org.hibernate.type.BlobType@76f6a2ec
+[                          main] BasicTypeRegistry              INFO  Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@76f6a2ec
+[                          main] BasicTypeRegistry              INFO  Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@3a4270f8
+[                          main] BasicTypeRegistry              INFO  Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@6006c7a9
+[                          main] BasicTypeRegistry              INFO  Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@5d1e597f
+[                          main] BasicTypeRegistry              INFO  Type registration [clob] overrides previous : org.hibernate.type.ClobType@7385d09b
+[                          main] BasicTypeRegistry              INFO  Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@7385d09b
+[                          main] BasicTypeRegistry              INFO  Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@5642ab5d
+[                          main] SessionFactoryObjectFactory    INFO  Not binding factory to JNDI, no JNDI name configured
+[                          main] SchemaUpdate                   INFO  Running hbm2ddl schema update
+[                          main] SchemaUpdate                   INFO  fetching database metadata
+[                          main] SchemaUpdate                   INFO  updating schema
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.CATEGORY
+[                          main] TableMetadata                  INFO  columns: [id, name, fs_id, language, version]
+[                          main] TableMetadata                  INFO  foreign keys: []
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_sys_pk_10038_10039, fsidindex2]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.CATEGORY_METACATEGORY
+[                          main] TableMetadata                  INFO  columns: [category_id, metacategory_id]
+[                          main] TableMetadata                  INFO  foreign keys: [fkd7ec9bc4b268b6d5, fkd7ec9bc419915b55]
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_10052, sys_idx_10054]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.METACATEGORY
+[                          main] TableMetadata                  INFO  columns: [id, name, fs_id, language, version]
+[                          main] TableMetadata                  INFO  foreign keys: []
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_sys_pk_10044_10045, fsidindex3]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.NEWS
+[                          main] TableMetadata                  INFO  columns: [headline, content, id, teaser, fs_id, language, subheadline, date, url, version]
+[                          main] TableMetadata                  INFO  foreign keys: []
+[                          main] TableMetadata                  INFO  indexes: [fsidindex1, sys_idx_sys_pk_10047_10048]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.NEWS_CATEGORY
+[                          main] TableMetadata                  INFO  columns: [news_id, category_id]
+[                          main] TableMetadata                  INFO  foreign keys: [fk8117e0eab268b6d5, fk8117e0eacd0366c2]
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_10056, sys_idx_10058]
+[                          main] SchemaUpdate                   INFO  schema update complete
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is starting
+[                          main] ManagementStrategyFactory      INFO  JMX is disabled.
+[                          main] DefaultTypeConverter           INFO  Loaded 173 type converters
+[                          main] SpringCamelContext             INFO  Route: uxbridge-commands started and consuming from: Endpoint[jms://topic:BUS_OUT]
+[                          main] SpringCamelContext             INFO  Total 1 routes, of which 1 is started.
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) started in 0.072 seconds
+[                          main] SpringCamelContext             INFO  Route: route2 started and consuming from: Endpoint[jms://topic:BUS_OUT]
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is starting
+[                          main] SpringCamelContext             INFO  Total 2 routes, of which 2 is started.
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) started in 0.000 seconds
+Hibernate: select count(news0_.headline) as col_0_0_ from news news0_ limit ?
+Hibernate: select news0_.id as id8_, news0_.content as content8_, news0_.date as date8_, news0_.fs_id as fs4_8_, news0_.headline as headline8_, news0_.language as language8_, news0_.subheadline as subheadl7_8_, news0_.teaser as teaser8_, news0_.url as url8_, news0_.version as version8_ from news news0_ where news0_.fs_id=256
+loading content from d:\projekte\uxbridge-samples\newsdrilldown\adapter\hibernate
+loading content from file d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\resources\inbox\add\pressreleasesdetails_256.xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<uxb_entity uuid="256" language="DE" destinations="postgres,mongodb" command="add" createTime="0" finishTime="0" startTime="0">
+    <uxb_content>
+        <fs_id>256</fs_id>
+        <language>DE</language>
+        <url>
+			/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=256
+		</url>
+        <date>2010-01-02T00:24:21+0100</date>
+        <headline>
+			Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen ausgezeichnet
+		</headline>
+        <subHeadline>Nun werden auch die Dünnschichtmodule geehrt
+		</subHeadline>
+        <teaser>
+			Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem Solarpreis der
+			Stadt Sonningen ausgezeichnet. In diesem Jahr stehen die
+			Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen Akt
+			Ende des Jahres von der Geschäftsführung und der Belegschaft von
+			Mithras Energy entgegen genommen wurde. Mit der neu entwickelten
+			Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert
+			werden.
+		</teaser>
+        <content>
+		</content>
+        <metaCategories>
+            <metaCategory>
+                <fs_id>4096</fs_id>
+                <name>Produkte</name>
+                <categories>
+                    <category>
+                        <fs_id>4160</fs_id>
+                        <name>Netzanschlusseinheiten</name>
+                    </category>
+                    <category>
+                        <fs_id>4161</fs_id>
+                        <name>Dünnschichtmodule</name>
+                    </category>
+                    <category>
+                        <fs_id>4163</fs_id>
+                        <name>Solar</name>
+                    </category>
+                    <category>
+                        <fs_id>4164</fs_id>
+                        <name>Neuentwicklungen</name>
+                    </category>
+                </categories>
+            </metaCategory>
+        </metaCategories>
+    </uxb_content>
+</uxb_entity>
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select news0_.id as id8_, news0_.content as content8_, news0_.date as date8_, news0_.fs_id as fs4_8_, news0_.headline as headline8_, news0_.language as language8_, news0_.subheadline as subheadl7_8_, news0_.teaser as teaser8_, news0_.url as url8_, news0_.version as version8_ from news news0_ where news0_.fs_id=?
+Hibernate: insert into news (id, content, date, fs_id, headline, language, subheadline, teaser, url, version) values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: select news0_.id as id8_, news0_.content as content8_, news0_.date as date8_, news0_.fs_id as fs4_8_, news0_.headline as headline8_, news0_.language as language8_, news0_.subheadline as subheadl7_8_, news0_.teaser as teaser8_, news0_.url as url8_, news0_.version as version8_ from news news0_ where news0_.fs_id=256
+Hibernate: select count(news0_.headline) as col_0_0_ from news news0_ limit ?
+loading content from d:\projekte\uxbridge-samples\newsdrilldown\adapter\hibernate
+loading content from file d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\src\test\resources\inbox\add\pressreleasesdetails_256.xml
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<uxb_entity uuid="256" language="DE" destinations="postgres,mongodb" command="add" createTime="0" finishTime="0" startTime="0">
+    <uxb_content>
+        <fs_id>256</fs_id>
+        <language>DE</language>
+        <url>
+			/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=256
+		</url>
+        <date>2010-01-02T00:24:21+0100</date>
+        <headline>
+			Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen ausgezeichnet
+		</headline>
+        <subHeadline>Nun werden auch die Dünnschichtmodule geehrt
+		</subHeadline>
+        <teaser>
+			Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem Solarpreis der
+			Stadt Sonningen ausgezeichnet. In diesem Jahr stehen die
+			Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen Akt
+			Ende des Jahres von der Geschäftsführung und der Belegschaft von
+			Mithras Energy entgegen genommen wurde. Mit der neu entwickelten
+			Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert
+			werden.
+		</teaser>
+        <content>
+		</content>
+        <metaCategories>
+            <metaCategory>
+                <fs_id>4096</fs_id>
+                <name>Produkte</name>
+                <categories>
+                    <category>
+                        <fs_id>4160</fs_id>
+                        <name>Netzanschlusseinheiten</name>
+                    </category>
+                    <category>
+                        <fs_id>4161</fs_id>
+                        <name>Dünnschichtmodule</name>
+                    </category>
+                    <category>
+                        <fs_id>4163</fs_id>
+                        <name>Solar</name>
+                    </category>
+                    <category>
+                        <fs_id>4164</fs_id>
+                        <name>Neuentwicklungen</name>
+                    </category>
+                </categories>
+            </metaCategory>
+        </metaCategories>
+    </uxb_content>
+</uxb_entity>
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=?
+Hibernate: select newsmetaca0_.id as id10_, newsmetaca0_.fs_id as fs2_10_, newsmetaca0_.language as language10_, newsmetaca0_.name as name10_, newsmetaca0_.version as version10_ from metaCategory newsmetaca0_ where newsmetaca0_.fs_id=? and newsmetaca0_.language=? limit ?
+Hibernate: delete from category_metaCategory where category_id=?
+Hibernate: insert into category_metaCategory (category_id, metaCategory_id) values (?, ?)
+Hibernate: select news0_.id as id8_, news0_.content as content8_, news0_.date as date8_, news0_.fs_id as fs4_8_, news0_.headline as headline8_, news0_.language as language8_, news0_.subheadline as subheadl7_8_, news0_.teaser as teaser8_, news0_.url as url8_, news0_.version as version8_ from news news0_ where news0_.fs_id=?
+Hibernate: select news0_.id as id8_, news0_.content as content8_, news0_.date as date8_, news0_.fs_id as fs4_8_, news0_.headline as headline8_, news0_.language as language8_, news0_.subheadline as subheadl7_8_, news0_.teaser as teaser8_, news0_.url as url8_, news0_.version as version8_ from news news0_ where news0_.fs_id=? limit ?
+Hibernate: select news0_.id as id8_1_, news0_.content as content8_1_, news0_.date as date8_1_, news0_.fs_id as fs4_8_1_, news0_.headline as headline8_1_, news0_.language as language8_1_, news0_.subheadline as subheadl7_8_1_, news0_.teaser as teaser8_1_, news0_.url as url8_1_, news0_.version as version8_1_, categories1_.news_id as news1_8_3_, newscatego2_.id as category2_3_, newscatego2_.id as id9_0_, newscatego2_.fs_id as fs2_9_0_, newscatego2_.language as language9_0_, newscatego2_.name as name9_0_, newscatego2_.version as version9_0_ from news news0_ left outer join news_category categories1_ on news0_.id=categories1_.news_id left outer join category newscatego2_ on categories1_.category_id=newscatego2_.id where news0_.id=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=?
+Hibernate: select newscatego0_.id as id9_, newscatego0_.fs_id as fs2_9_, newscatego0_.language as language9_, newscatego0_.name as name9_, newscatego0_.version as version9_ from category newscatego0_ where newscatego0_.fs_id=? and newscatego0_.language=? limit ?
+Hibernate: delete from news_category where news_id=?
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: insert into news_category (news_id, category_id) values (?, ?)
+Hibernate: select news0_.id as id8_, news0_.content as content8_, news0_.date as date8_, news0_.fs_id as fs4_8_, news0_.headline as headline8_, news0_.language as language8_, news0_.subheadline as subheadl7_8_, news0_.teaser as teaser8_, news0_.url as url8_, news0_.version as version8_ from news news0_ where news0_.fs_id=256
+[                          main] BrokerService                  INFO  ActiveMQ Message Broker (localhost, ID:CHARA-65360-1345796258196-0:2) is shutting down
+[read #3 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Setup of JMS message listener invoker failed for destination 'BUS_OUT' - trying to recover. Cause: java.io.EOFException
+[read #4 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Setup of JMS message listener invoker failed for destination 'BUS_OUT' - trying to recover. Cause: java.io.EOFException
+[                          main] TransportConnector             INFO  Connector tcp://widget.dev:61500 Stopped
+[                          main] PListStore                     INFO  PListStore:[d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\activemq-data\localhost\tmp_storage ] stopped
+[                          main] KahaDBStore                    INFO  Stopping async queue tasks
+[                          main] KahaDBStore                    INFO  Stopping async topic tasks
+[                          main] KahaDBStore                    INFO  Stopped KahaDB
+[                          main] BrokerService                  INFO  ActiveMQ JMS Message Broker (localhost, ID:CHARA-65360-1345796258196-0:2) stopped
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is shutting down
+[                          main] DefaultShutdownStrategy        INFO  Starting to graceful shutdown 2 routes (timeout 300 seconds)
+[read #3 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Could not refresh JMS Connection for destination 'BUS_OUT' - retrying in 5000 ms. Cause: Could not connect to broker URL: tcp://localhost:61500. Reason: java.net.ConnectException: Connection refused: connect
+[read #4 - JmsConsumer[BUS_OUT]] ultJmsMessageListenerContainer WARN  Could not refresh JMS Connection for destination 'BUS_OUT' - retrying in 5000 ms. Cause: Could not connect to broker URL: tcp://localhost:61500. Reason: java.net.ConnectException: Connection refused: connect
+[text) thread #5 - ShutdownTask] DefaultShutdownStrategy        INFO  Route: route2 shutdown complete, was consuming from: Endpoint[jms://topic:BUS_OUT]
+[text) thread #5 - ShutdownTask] DefaultShutdownStrategy        INFO  Route: uxbridge-commands shutdown complete, was consuming from: Endpoint[jms://topic:BUS_OUT]
+[                          main] DefaultShutdownStrategy        INFO  Graceful shutdown of 2 routes completed in 5 seconds
+[                          main] DefaultTypeConverter           INFO  TypeConverterRegistry utilization[attempts=42, hits=34, misses=8, failures=0] mappings[total=173, misses=2]
+[                          main] SpringCamelContext             INFO  Apache Camel 2.10.0 (CamelContext: camelContext) is shutdown in 5.574 seconds. Uptime 28.078 seconds.
+[                          main] SessionFactoryImpl             INFO  closing
+[                          main] ileSystemXmlApplicationContext INFO  Closing org.apache.xbean.spring.context.FileSystemXmlApplicationContext@32095860: startup date [Fri Aug 24 10:18:21 CEST 2012]; root of context hierarchy
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] CommandITCase                  INFO  Testing done: testAdd(com.espirit.moddev.examples.uxbridge.newsdrilldown.test.CommandITCase)
+[                          main] CommandITCase                  INFO  Took: 30.024 seconds (30024 millis)
+[                          main] CommandITCase                  INFO  ********************************************************************************
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-3) is shutting down
+[                          main] DefaultTypeConverter           INFO  TypeConverterRegistry utilization[attempts=2, hits=2, misses=0, failures=0] mappings[total=173, misses=0]
+[                          main] DefaultCamelContext            INFO  Apache Camel 2.10.0 (CamelContext: camel-3) is shutdown in 0.001 seconds. Uptime 30.042 seconds.
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 74.847 sec
+Running com.espirit.moddev.examples.uxbridge.newsdrilldown.test.NewsITCase
+[                          main] Ejb3Configuration              INFO  Processing PersistenceUnitInfo [
+	name: camel
+	...]
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.News
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.News on table news
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsCategory
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsCategory on table category
+[                          main] AnnotationBinder               INFO  Binding entity from annotated class: com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory
+[                          main] EntityBinder                   INFO  Bind entity com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory on table metaCategory
+[                          main] ateSearchEventListenerRegister INFO  Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[                          main] ConnectionProviderFactory      INFO  Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[                          main] edDataSourceConnectionProvider INFO  Using provided datasource
+[                          main] AbstractPoolBackedDataSource   INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqvgf8poc3a3quovb10|242dbe16, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> org.hsqldb.jdbcDriver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqvgf8poc3a3quovb10|242dbe16, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:hsqldb:mem:testdb, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[                          main] Dialect                        INFO  Using dialect: org.hibernate.dialect.HSQLDialect
+[                          main] JdbcSupportLoader              INFO  Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+[                          main] SettingsFactory                INFO  Database ->
+       name : HSQL Database Engine
+    version : 2.2.4
+      major : 2
+      minor : 2
+[                          main] SettingsFactory                INFO  Driver ->
+       name : HSQL Database Engine Driver
+    version : 2.2.4
+      major : 2
+      minor : 2
+[                          main] TransactionFactoryFactory      INFO  Using default transaction strategy (direct JDBC transactions)
+[                          main] ransactionManagerLookupFactory INFO  No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[                          main] SettingsFactory                INFO  Automatic flush during beforeCompletion(): disabled
+[                          main] SettingsFactory                INFO  Automatic session close at end of transaction: disabled
+[                          main] SettingsFactory                INFO  JDBC batch size: 15
+[                          main] SettingsFactory                INFO  JDBC batch updates for versioned data: disabled
+[                          main] SettingsFactory                INFO  Scrollable result sets: enabled
+[                          main] SettingsFactory                INFO  JDBC3 getGeneratedKeys(): enabled
+[                          main] SettingsFactory                INFO  Connection release mode: auto
+[                          main] SettingsFactory                INFO  Default batch fetch size: 1
+[                          main] SettingsFactory                INFO  Generate SQL with comments: disabled
+[                          main] SettingsFactory                INFO  Order SQL updates by primary key: disabled
+[                          main] SettingsFactory                INFO  Order SQL inserts for batching: disabled
+[                          main] SettingsFactory                INFO  Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[                          main] ASTQueryTranslatorFactory      INFO  Using ASTQueryTranslatorFactory
+[                          main] SettingsFactory                INFO  Query language substitutions: {}
+[                          main] SettingsFactory                INFO  JPA-QL strict compliance: enabled
+[                          main] SettingsFactory                INFO  Second-level cache: enabled
+[                          main] SettingsFactory                INFO  Query cache: disabled
+[                          main] SettingsFactory                INFO  Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[                          main] SettingsFactory                INFO  Optimize cache for minimal puts: disabled
+[                          main] SettingsFactory                INFO  Structured second-level cache entries: disabled
+[                          main] SettingsFactory                INFO  Echoing all SQL to stdout
+[                          main] SettingsFactory                INFO  Statistics: disabled
+[                          main] SettingsFactory                INFO  Deleted entity synthetic identifier rollback: disabled
+[                          main] SettingsFactory                INFO  Default entity-mode: pojo
+[                          main] SettingsFactory                INFO  Named query checking : enabled
+[                          main] SettingsFactory                INFO  Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[                          main] SessionFactoryImpl             INFO  building session factory
+[                          main] BasicTypeRegistry              INFO  Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1ed9f356
+[                          main] BasicTypeRegistry              INFO  Type registration [blob] overrides previous : org.hibernate.type.BlobType@76f6a2ec
+[                          main] BasicTypeRegistry              INFO  Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@76f6a2ec
+[                          main] BasicTypeRegistry              INFO  Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@3a4270f8
+[                          main] BasicTypeRegistry              INFO  Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@6006c7a9
+[                          main] BasicTypeRegistry              INFO  Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@5d1e597f
+[                          main] BasicTypeRegistry              INFO  Type registration [clob] overrides previous : org.hibernate.type.ClobType@7385d09b
+[                          main] BasicTypeRegistry              INFO  Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@7385d09b
+[                          main] BasicTypeRegistry              INFO  Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@5642ab5d
+[                          main] SessionFactoryObjectFactory    INFO  Not binding factory to JNDI, no JNDI name configured
+[                          main] SchemaUpdate                   INFO  Running hbm2ddl schema update
+[                          main] SchemaUpdate                   INFO  fetching database metadata
+[                          main] SchemaUpdate                   INFO  updating schema
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.CATEGORY
+[                          main] TableMetadata                  INFO  columns: [id, name, fs_id, language, version]
+[                          main] TableMetadata                  INFO  foreign keys: []
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_sys_pk_10038_10039, fsidindex2]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.CATEGORY_METACATEGORY
+[                          main] TableMetadata                  INFO  columns: [category_id, metacategory_id]
+[                          main] TableMetadata                  INFO  foreign keys: [fkd7ec9bc4b268b6d5, fkd7ec9bc419915b55]
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_10052, sys_idx_10054]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.METACATEGORY
+[                          main] TableMetadata                  INFO  columns: [id, name, fs_id, language, version]
+[                          main] TableMetadata                  INFO  foreign keys: []
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_sys_pk_10044_10045, fsidindex3]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.NEWS
+[                          main] TableMetadata                  INFO  columns: [headline, content, id, teaser, fs_id, language, subheadline, date, url, version]
+[                          main] TableMetadata                  INFO  foreign keys: []
+[                          main] TableMetadata                  INFO  indexes: [fsidindex1, sys_idx_sys_pk_10047_10048]
+[                          main] TableMetadata                  INFO  table found: PUBLIC.PUBLIC.NEWS_CATEGORY
+[                          main] TableMetadata                  INFO  columns: [news_id, category_id]
+[                          main] TableMetadata                  INFO  foreign keys: [fk8117e0eab268b6d5, fk8117e0eacd0366c2]
+[                          main] TableMetadata                  INFO  indexes: [sys_idx_10056, sys_idx_10058]
+[                          main] SchemaUpdate                   INFO  schema update complete
+Hibernate: select news0_.id as id16_, news0_.content as content16_, news0_.date as date16_, news0_.fs_id as fs4_16_, news0_.headline as headline16_, news0_.language as language16_, news0_.subheadline as subheadl7_16_, news0_.teaser as teaser16_, news0_.url as url16_, news0_.version as version16_ from news news0_
+Hibernate: select newscatego0_.id as id17_, newscatego0_.fs_id as fs2_17_, newscatego0_.language as language17_, newscatego0_.name as name17_, newscatego0_.version as version17_ from category newscatego0_
+Hibernate: select newsmetaca0_.id as id18_, newsmetaca0_.fs_id as fs2_18_, newsmetaca0_.language as language18_, newsmetaca0_.name as name18_, newsmetaca0_.version as version18_ from metaCategory newsmetaca0_
+Hibernate: select count(news0_.fs_id) as col_0_0_ from news news0_ limit ?
+[                          main] SessionFactoryImpl             INFO  closing
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.212 sec <<< FAILURE!
+
+Results :
+
+Failed tests:   testPersistence(com.espirit.moddev.examples.uxbridge.newsdrilldown.test.NewsITCase): DB not empty expected:<0> but was:<1>
+
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0
+
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.9:verify (default) @ uxbridge.samples.news.hibernate ---
+[INFO] Failsafe report directory: d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\failsafe-reports
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1:25.380s
+[INFO] Finished at: Fri Aug 24 10:18:51 CEST 2012
+[INFO] Final Memory: 32M/220M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-failsafe-plugin:2.9:verify (default) on project uxbridge.samples.news.hibernate: There are test failures.
+[ERROR] 
+[ERROR] Please refer to d:\projekte\uxbridge-samples\newsDrillDown\adapter\hibernate\target\failsafe-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  //**********************************************************************
+  uxbridge.samples.newsdrilldown.mongodb
+  %%
+  Copyright (C) 2012 e-Spirit AG
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  *********************************************************************//*
+  -->
+
+<uxb_entity uuid="490" language="DE" destinations="postgres,mongodb"
+	command="add" objectType="news_article">
+
+	<uxb_content>
+		<fs_id>490</fs_id>
+		<language>DE</language>
+
+		<url>
+			/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=490
+		</url>
+		<date>2010-01-02T00:24:21+0100</date>
+
+		<headline>
+			Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen ausgezeichnet
+		</headline>
+		<subHeadline>Nun werden auch die Dünnschichtmodule geehrt
+		</subHeadline>
+
+		<teaser>
+			Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem Solarpreis der
+			Stadt Sonningen ausgezeichnet. In diesem Jahr stehen die
+			Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen Akt
+			Ende des Jahres von der Geschäftsführung und der Belegschaft von
+			Mithras Energy entgegen genommen wurde. Mit der neu entwickelten
+			Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert
+			werden.
+		</teaser>
+
+		<content>
+			Dünnschichtmodule: Die Tandemstruktur
+			<p class="section">Dünnschichtzellen unterscheiden sich von traditionellen
+				Solarzellen im Produktionsverfahren und den eingesetzten
+				Materialien. Sie sind extrem langlebig und haltbar.</p>
+			<p class="section">Das Dünnschichtmodul 1400 modular besteht aus einer
+				amorphen und einer mikrokristallinen Siliziumschicht. Diese
+				mikroamorphe Tandemstruktur absorbiert nicht nur die sichtbaren,
+				sondern auch die nicht sichtbaren Anteile des Sonnenspektrums. Dies
+				führt zu einer besonders effektiven Nutzung der Sonnenenergie.</p>
+			<p class="section">
+				Erfahren Sie mehr über unsere neuen Dünnschichtmodule:
+				<br />
+			</p>
+			Dünnschichtmodule: Die Tandemstruktur
+			<p class="section">Dünnschichtzellen unterscheiden sich von traditionellen
+				Solarzellen im Produktionsverfahren und den eingesetzten
+				Materialien. Sie sind extrem langlebig und haltbar.</p>
+			<p class="section">Das Dünnschichtmodul 1400 modular besteht aus einer
+				amorphen und einer mikrokristallinen Siliziumschicht. Diese
+				mikroamorphe Tandemstruktur absorbiert nicht nur die sichtbaren,
+				sondern auch die nicht sichtbaren Anteile des Sonnenspektrums. Dies
+				führt zu einer besonders effektiven Nutzung der Sonnenenergie.</p>
+			<p class="section">
+				Erfahren Sie mehr über unsere neuen Dünnschichtmodule:
+				<br />
+			</p>
+		</content>
+
+		<metaCategories>
+
+			<metaCategory>
+				<fs_id>4096</fs_id>
+				<name>Produkte</name>
+
+				<categories>
+
+					<category>
+						<fs_id>4160</fs_id>
+						<name>Netzanschlusseinheiten</name>
+					</category>
+
+					<category>
+						<fs_id>4161</fs_id>
+						<name>Dünnschichtmodule</name>
+					</category>
+
+					<category>
+						<fs_id>4163</fs_id>
+						<name>Solar</name>
+					</category>
+
+					<category>
+						<fs_id>4164</fs_id>
+						<name>Neuentwicklungen</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+            <metaCategory>
+				<fs_id>4097</fs_id>
+				<name>Produkte2</name>
+
+				<categories>
+
+					<category>
+						<fs_id>4165</fs_id>
+						<name>Netzanschlusseinheiten2</name>
+					</category>
+
+					<category>
+						<fs_id>4166</fs_id>
+						<name>Dünnschichtmodule2</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>

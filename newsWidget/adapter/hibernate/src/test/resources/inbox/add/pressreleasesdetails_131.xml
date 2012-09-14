@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  //**********************************************************************
+  uxbridge.samples.newswidget.hibernate
+  %%
+  Copyright (C) 2012 e-Spirit AG
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  *********************************************************************//*
+  -->
+
+<uxb_entity uuid="131" language="DE" destinations="postgres" command="add" objectType="news">
+	<uxb_content>
+		<fs_id>131</fs_id>
+		<language>DE</language>
+		<date>2010-05-27T11:00:43+0100</date>
+		<headline>Solare Vielseitigkeit</headline>
+		<subHeadline>Weit verbreiteter Einsatz von monokristallinen Modulen</subHeadline>
+		<teaser>Monokristalline Module sind die sogenannten Allrounder der Solarbranche. Aufgrund ihrer kompakten Bauform und der Leistungsstärke sind diese Module sowohl für PV-Anlagen im Wohnungsbereich, Großanlagen auf Schrägdächern oder aber für den mobilen Einsatz optimal geeignet. Der eloxierte Gehäuserahmen ist verstärkt und bildet mit dem spezialgehärteten Frontglas eine herausragende Schutzeinheit für extreme Wetterbedingungen.</teaser>
+		<content>Wenig Platz, viel Wirkung&lt;p class=&quot;section&quot;&gt;Wo nur begrenzt Platz zur Verfügung steht, sind monokristalline Module die erste Wahl. Durch den reineren Siliziumgehalt der Zellen ist deren Wirkungsgrad besonders hoch. Für die gleiche Leistung werden ca. 15 % weniger Fläche beansprucht als bei anderen Modulen. Auch die Zellspannung ist normalerweise leicht erhöht. Monokristalline Module erreichen derzeit eine Lebensdauer von über 30 Jahren, die Leistungsgarantien der Hersteller reichen über 25 Jahre. Erkennen kann man monokristalline Module an ihrer auffälligen Schwarzfärbung.&lt;/p&gt;fs://7/r/1125/DE/TextBildTeaser/17922/fb3904a3/x.jpg&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere kristallinen Module:&lt;br /&gt; &lt;/p&gt;Wenig Platz, viel Wirkung&lt;p class=&quot;section&quot;&gt;Wo nur begrenzt Platz zur Verfügung steht, sind monokristalline Module die erste Wahl. Durch den reineren Siliziumgehalt der Zellen ist deren Wirkungsgrad besonders hoch. Für die gleiche Leistung werden ca. 15 % weniger Fläche beansprucht als bei anderen Modulen. Auch die Zellspannung ist normalerweise leicht erhöht. Monokristalline Module erreichen derzeit eine Lebensdauer von über 30 Jahren, die Leistungsgarantien der Hersteller reichen über 25 Jahre. Erkennen kann man monokristalline Module an ihrer auffälligen Schwarzfärbung.&lt;/p&gt;fs://7/r/1125/DE/TextBildTeaser/17922/fb3904a3/x.jpg&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere kristallinen Module:&lt;br /&gt; &lt;/p&gt;</content>
+	</uxb_content>
+</uxb_entity>

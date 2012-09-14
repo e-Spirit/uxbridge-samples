@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  //**********************************************************************
+  uxbridge.samples.newswidget.base
+  %%
+  Copyright (C) 2012 e-Spirit AG
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  *********************************************************************//*
+  -->
+
+<uxb_entity uuid="130" language="DE" destinations="postgres,mongodb">
+	<uxb_content>
+		<fs_id>130</fs_id>
+		<language>DE</language>
+		<date>2010-01-15T11:00:48+0100</date>
+		<headline>Neuer Geschäftsführer bei Mithras Energy</headline>
+		<subHeadline>Hans Energie verstärkt die Geschäftsführung des Sonninger Unternehmens</subHeadline>
+		<teaser>Seit dem 1. Januar 2008 wird die Mithras Energy Solartechnik GmbH in der Geschäftsführung durch Hans Energie verstärkt. Damit trägt das Unternehmen dem Wachstum der letzten Monate Rechnung und bildet den Erfolg des Unternehmens ab.</teaser>
+		<content>Hans Energie&lt;p class=&quot;section&quot;&gt;Seit mehr als 10 Jahren besetzt Hans Energie wichtige Positionen in innovativen Unternehmen der Solarbranche. Der gelernte Ingenieur für Verfahrenstechnik kann einerseits auf umfangreiche fachspezifische Erfahrungen zurückblicken. Durch sein Engagement in der Entwicklung von monokristallinen Modulen machte er schon frühzeitig auf sich aufmerksam.&lt;/p&gt;Mithras Energy&lt;p class=&quot;section&quot;&gt;Mithras Energy ist ein weltweit führender Solarkonzern in der Entwicklung und Herstellung von innovativen Solarenergielösungen. Unser Team schafft immer wieder Fortschritte in der solaren Stromerzeugung durch konstruktives und kreatives Denken. Unsere Produkte und Anwendungen werden deutschlandweit konzipiert und global vertrieben. Kunden unserer Produkte finden sich in Asien, Amerika, Europa und Australien.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unser Unternehmen:&lt;br /&gt; &lt;/p&gt;Hans Energie&lt;p class=&quot;section&quot;&gt;Seit mehr als 10 Jahren besetzt Hans Energie wichtige Positionen in innovativen Unternehmen der Solarbranche. Der gelernte Ingenieur für Verfahrenstechnik kann einerseits auf umfangreiche fachspezifische Erfahrungen zurückblicken. Durch sein Engagement in der Entwicklung von monokristallinen Modulen machte er schon frühzeitig auf sich aufmerksam.&lt;/p&gt;Mithras Energy&lt;p class=&quot;section&quot;&gt;Mithras Energy ist ein weltweit führender Solarkonzern in der Entwicklung und Herstellung von innovativen Solarenergielösungen. Unser Team schafft immer wieder Fortschritte in der solaren Stromerzeugung durch konstruktives und kreatives Denken. Unsere Produkte und Anwendungen werden deutschlandweit konzipiert und global vertrieben. Kunden unserer Produkte finden sich in Asien, Amerika, Europa und Australien.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unser Unternehmen:&lt;br /&gt; &lt;/p&gt;Hans Energie&lt;p class=&quot;section&quot;&gt;Seit mehr als 10 Jahren besetzt Hans Energie wichtige Positionen in innovativen Unternehmen der Solarbranche. Der gelernte Ingenieur für Verfahrenstechnik kann einerseits auf umfangreiche fachspezifische Erfahrungen zurückblicken. Durch sein Engagement in der Entwicklung von monokristallinen Modulen machte er schon frühzeitig auf sich aufmerksam.&lt;/p&gt;Mithras Energy&lt;p class=&quot;section&quot;&gt;Mithras Energy ist ein weltweit führender Solarkonzern in der Entwicklung und Herstellung von innovativen Solarenergielösungen. Unser Team schafft immer wieder Fortschritte in der solaren Stromerzeugung durch konstruktives und kreatives Denken. Unsere Produkte und Anwendungen werden deutschlandweit konzipiert und global vertrieben. Kunden unserer Produkte finden sich in Asien, Amerika, Europa und Australien.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unser Unternehmen:&lt;br /&gt; &lt;/p&gt;</content>
+	</uxb_content>
+</uxb_entity>

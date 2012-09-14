@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  //**********************************************************************
+  uxbridge.samples.newswidget.hibernate
+  %%
+  Copyright (C) 2012 e-Spirit AG
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  *********************************************************************//*
+  -->
+
+<uxb_entity uuid="128" language="DE" destinations="postgres" command="add" objectType="news">
+	<uxb_content>
+		<fs_id>128</fs_id>
+		<language>DE</language>
+		<date>2010-12-30T11:00:31+0100</date>
+		<headline>Mithras Energy erhält Solarpreis der Stadt Sonningen</headline>
+		<subHeadline>Stetige Innovation zahlt sich aus</subHeadline>
+		<teaser>In einer Feierstunde wurde der Mithras Energy vom Bürgermeister Karl-Heinz Schmidt der der Solarpreis der Sonnigen verliehen. Mit dem Preis werden Unternehmen und deren stetiger Einsatz für die Solarenergie im deutschsprachigen Raum ausgezeichnet. Der Geschäftsführer von Mithras Energy nahm diesen Preis dankend entgegen: „Wir freuen uns, dass die Leistung, die wir seit Jahren erbringen, auch über die Branchengrenzen hinaus bekannt geworden sind und setzen alles dran, dass unserer Leistungen auch weiterhin ausstrahlen werden.“ </teaser>
+		<content>Monokristalline Module&lt;p class=&quot;section&quot;&gt;Mithras Energy erhielt die Auszeichnung für seinen besonderen Einsatz in der Entwicklung von monokristallinen Modulen. Diese monokristallinen Module bieten die optimalen Voraussetzungen für den mobilen Einsatz. Der eloxierte Gehäuserahmen ist verstärkt und in Verbindung mit dem spezialgehärteten Frontglas, das besonders lichtdurchlässig reagiert, auch gegen Hagel und hohe Windgeschwindigkeiten optimal geschützt.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere monokristallinen Module:&lt;br /&gt; &lt;/p&gt;Monokristalline Module&lt;p class=&quot;section&quot;&gt;Mithras Energy erhielt die Auszeichnung für seinen besonderen Einsatz in der Entwicklung von monokristallinen Modulen. Diese monokristallinen Module bieten die optimalen Voraussetzungen für den mobilen Einsatz. Der eloxierte Gehäuserahmen ist verstärkt und in Verbindung mit dem spezialgehärteten Frontglas, das besonders lichtdurchlässig reagiert, auch gegen Hagel und hohe Windgeschwindigkeiten optimal geschützt.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere monokristallinen Module:&lt;br /&gt; &lt;/p&gt;</content>
+	</uxb_content>
+</uxb_entity>
