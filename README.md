@@ -15,7 +15,8 @@ The uxbridge-samples project contains the following subprojects:
     - hibernate
     - mongo
   - grailsapp
-  
+- uxbridge-api-example
+
 The adapters:
 -------------
 The adapters are listening on a JMS message bus for messages. If they receive a 
@@ -51,7 +52,10 @@ NewsWidget:
 The newsWidget application shows a small widget on a page which lists the latest news articles.
 If a new article gets written into the database the widget will update the view immediately
 to show the newest article. This gets with the help of AJAX requests. 
-  
+
+uxbridge-api-example
+--------------------
+This example shows how to use the UX-Bridge API in custom FirstSpirit modules.
 
 Attention:
 ----------

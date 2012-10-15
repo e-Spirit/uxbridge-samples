@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<name>UX-Bridge-Api-Sample</name>
+	<version>${project.version}</version>
+	<description>${project.artifactId}</description>
+
+	<components>
+		<public>
+			<name>ReleaseAndDeployEntityExecutable</name>
+			<class>com.espirit.moddev.uxbridge.samples.workflow.ReleaseAndDeployEntityExecutable</class>
+		</public>
+		<public>
+			<name>DeleteEntityExecutable</name>
+			<class>com.espirit.moddev.uxbridge.samples.workflow.DeleteEntityExecutable</class>
+		</public>
+	</components>
+	<resources>
+		<resource scope="module">lib/${project.artifactId}-${project.version}-jar-with-dependencies.jar</resource>
+	</resources>
+
+</module>
