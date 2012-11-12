@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- //********************************************************************** 
+	uxbridge.samples.newswidget.mongodb %% Copyright (C) 2012 e-Spirit AG %% 
+	Licensed under the Apache License, Version 2.0 (the "License"); you may not 
+	use this file except in compliance with the License. You may obtain a copy 
+	of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. *********************************************************************//* -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:broker="http://activemq.apache.org/schema/core" xmlns:sc="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+   	   http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://activemq.apache.org/schema/core
+       http://activemq.apache.org/schema/core/activemq-core.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<sc:annotation-config />
+	<tx:annotation-driven />
+	<camelContext id="camelContext" trace="false"
+		xmlns="http://camel.apache.org/schema/spring">
+		<onException>
+			<exception>java.io.IOException</exception>
+			<handled>
+				<constant>true</constant>
+			</handled>
+			<to uri="adapterReturn:jms:topic:BUS_IN?destination=mongodb&amp;bodyValue=bodyTemp" />
+		</onException>
+		
+		<route id="uxbridge-commands">
+			<from uri="jms:topic:BUS_OUT" />
+			<filter>
+				<xpath>//uxb_entity[contains(@destinations, 'mongodb')]</xpath>
+				<filter>
+					<xpath>//uxb_entity[@objectType = 'news']</xpath>
+					<camel:setHeader headerName="bodyTemp">
+						<simple>${body}</simple>
+					</camel:setHeader>
+					<filter>
+						<xpath>//uxb_entity[@command = 'add']</xpath>
+						<camel:split stopOnException="true">
+							<camel:xpath>/uxb_entity/uxb_content/text()</camel:xpath>
+							<camel:convertBodyTo type="java.lang.String" />
+							<camel:setBody>
+								<language language="groovy"><![CDATA[request.getBody().substring(request.getBody().indexOf("<![CDATA[")+9,request.getBody().lastIndexOf("]]]]><![CDATA[>"))]]></language>
+							</camel:setBody>
+							<camel:convertBodyTo type="com.mongodb.DBObject" />
+							<to
+								uri="mongodb:myDb?database=newsWidget&amp;collection=article&amp;operation=save" />
+						</camel:split>
+					</filter>
+					<filter>
+						<xpath>//uxb_entity[@command = 'delete']</xpath>
+						<camel:split stopOnException="true">
+							<camel:xpath>/uxb_entity</camel:xpath>
+							<camel:convertBodyTo type="java.lang.String" />
+							<camel:setBody><camel:groovy>'{aid:'+request.getBody().substring(request.getBody().indexOf('uuid=')+6,request.getBody().indexOf('"',request.getBody().indexOf('uuid=')+6))+',"language":"'+request.getBody().substring(request.getBody().indexOf('language=')+10,request.getBody().indexOf('"',request.getBody().indexOf('language=')+10))+'"}'</camel:groovy></camel:setBody>
+							<to uri="stream:out" />
+							<camel:convertBodyTo type="com.mongodb.DBObject" />
+							<to	uri="mongodb:myDb?database=newsWidget&amp;collection=article&amp;operation=remove" />
+						</camel:split>
+					</filter>
+					<filter>
+						<xpath>//uxb_entity[@command = 'cleanup']</xpath>
+						<camel:split stopOnException="true">
+							<camel:xpath>/uxb_entity</camel:xpath>
+							<camel:convertBodyTo type="java.lang.String" />
+							<camel:setBody><camel:groovy>'{"lastmodified":{$lt:'+request.getBody().substring(request.getBody().indexOf('createTime=')+12,request.getBody().indexOf('"',request.getBody().indexOf('createTime=')+12))+'}}'</camel:groovy></camel:setBody>
+							<to uri="stream:out" />
+							<camel:convertBodyTo type="com.mongodb.DBObject" />
+							<to
+								uri="mongodb:myDb?database=newsWidget&amp;collection=article&amp;operation=remove" />
+						</camel:split>
+					</filter>
+					<to uri="adapterReturn:jms:topic:BUS_IN?destination=mongodb" />
+				</filter>
+			</filter>
+
+
+		</route>
+
+		<route>
+			<from uri="jms:topic:BUS_IN" />
+			<to uri="stream:out" />
+		</route>
+		
+		<route>
+			<from uri="jms:queue:dead"/>
+			<to uri="stream:out"/>
+		</route>
+		
+	</camelContext>
+
+
+	<bean id="myDb" class="com.mongodb.Mongo">
+		<constructor-arg name="host" value="localhost" />
+		<!-- <constructor-arg name="port" value="2307" /> -->
+	</bean>
+
+	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="tcp://localhost:61501" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
+	</bean>
+</beans>

@@ -30,7 +30,7 @@ class Category {
 	Long fs_id
 	String name
 	String language
-	Long lastmodified
+	Long lastmodified=new Date().getTime()
 
 	static belongsTo = MetaCategory
 	static hasMany = [news:News,metaCategories:MetaCategory]

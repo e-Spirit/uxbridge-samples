@@ -234,7 +234,7 @@ public class MongoCommandITCase extends BaseTest {
             // item should be deleted
             DBObject query = new BasicDBObject();
             query.put("fs_id", Long.parseLong(id));
-            assertEquals(0, dbNews.count(query));
+            assertEquals(id+" is not deleted",0, dbNews.count(query));
         }
 
         assertEquals("ups, there are items left in the db", 0, countNews());

@@ -39,7 +39,7 @@ import com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity;
  * which might be used as content-repository for an UX-Bridge application.
  */
 @Repository
-public class ArticleHandler extends AbstractHandler {
+public class ArticleHandler {
 
     /**
      * The Constant logger.
@@ -50,6 +50,12 @@ public class ArticleHandler extends AbstractHandler {
      * The Constant DESTINATION contains the destination of the messages coming from the broker.
      */
 	private static final String DESTINATION = "postgres";
+	
+	/** The Constant STATUS_OK. */
+	public static final String STATUS_OK = "OK";
+    
+    /** The Constant STATUS_FAIL. */
+    public static final String STATUS_FAIL = "FAIL";
 
     /**
      * The emf.
@@ -90,13 +96,7 @@ public class ArticleHandler extends AbstractHandler {
 	 *
 	 * @param entity The NewsItem
 	 */
-	public void add(UXBEntity entity) {
-
-		if (entity == null) {
-			logger.warn("no UXBentity given, no action");
-			sendStatusMessage(context, this.responseRoute, STATUS_FAIL , DESTINATION, "no UXBentity");
-			return;
-		}
+	public void add(UXBEntity entity) throws Exception{
 
 		Article art = buildArticle(entity);
 
@@ -131,15 +131,13 @@ public class ArticleHandler extends AbstractHandler {
 			em.persist(art);
 			em.flush();
 
-			sendStatusMessage(context, this.responseRoute, STATUS_OK, DESTINATION, null, entity);
-
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.setRollbackOnly();
+				throw e;
 			}
 			logger.error("Failure while writing to the database", e);
-			sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, stackToString(e), entity);
 		} finally {
 			if (tx != null && tx.isActive()) {
 				if (tx.getRollbackOnly()) {
@@ -157,14 +155,7 @@ public class ArticleHandler extends AbstractHandler {
 	 *
 	 * @param entity The article to delete
 	 */
-	public void delete(UXBEntity entity) {
-
-		if (entity == null) {
-			logger.warn("no UXBentity given, no action");
-
-			sendStatusMessage(context, this.responseRoute, STATUS_FAIL , DESTINATION, "no UXBentity");
-			return;
-		}
+	public void delete(UXBEntity entity) throws Exception{
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -183,15 +174,13 @@ public class ArticleHandler extends AbstractHandler {
 				Article art = (Article) query.getSingleResult();
                 em.remove(art);
 			}
-			sendStatusMessage(context, this.responseRoute, STATUS_OK , DESTINATION, null, entity);
-
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.setRollbackOnly();
+				throw e;
 			}
 			logger.error("Failure while deleting from the database", e);
-			sendStatusMessage(context, this.responseRoute, STATUS_FAIL , DESTINATION, stackToString(e), entity);
 		} finally {
 			if (tx != null && tx.isActive()) {
 				if (tx.getRollbackOnly()) {
@@ -210,14 +199,7 @@ public class ArticleHandler extends AbstractHandler {
 	 *
 	 * @param entity Entity containing the expireDate (= createTime of the entity)
 	 */
-	public void cleanup(UXBEntity entity) {
-
-		if (entity == null) {
-			logger.warn("no UXBentity given, no action");
-
-			sendStatusMessage(context, this.responseRoute, STATUS_FAIL , DESTINATION, "no UXBentity");
-			return;
-		}
+	public void cleanup(UXBEntity entity) throws Exception{
 
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -236,15 +218,13 @@ public class ArticleHandler extends AbstractHandler {
 					em.remove(art);
 				}
 			}
-			sendStatusMessage(context, this.responseRoute, STATUS_OK , DESTINATION, null, entity);
-
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.setRollbackOnly();
+				throw e;
 			}
 			logger.error("Failure while deleting from the database", e);
-			sendStatusMessage(context, this.responseRoute, STATUS_FAIL , DESTINATION, stackToString(e), entity);
 		} finally {
 			if (tx != null && tx.isActive()) {
 				if (tx.getRollbackOnly()) {

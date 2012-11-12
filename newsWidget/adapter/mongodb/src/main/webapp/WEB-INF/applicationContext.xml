@@ -45,12 +45,17 @@
 	<camelContext id="camelContext" trace="false" xmlns="http://camel.apache.org/schema/spring">
 
 		<package>com.espirit.moddev.examples.uxbridge.newswidget.entity</package>
-
+		<onException>
+			<exception>java.lang.Exception</exception>
+			<handled>
+				<constant>true</constant>
+			</handled>
+			<to uri="adapterReturn:activemq:topic:BUS_IN?destination=mongodb&amp;bodyValue=bodyTemp" />
+		</onException>
 		<route id="uxbridge-commands">
 			<from uri="activemq:Consumer.newsWidget-MongoDB.VirtualTopic.BUS_OUT"/>
 			<filter>
 				<xpath>//uxb_entity[contains(@destinations, 'mongodb')]</xpath>
-
 				<filter>
 					<xpath>//uxb_entity[@objectType = 'news']</xpath>
 					<filter>
@@ -68,8 +73,13 @@
 						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity"/>
 						<bean ref="articleHandler" method="cleanup"/>
 					</filter>
+					<to uri="adapterReturn:activemq:topic:BUS_IN?destination=mongodb" />
 				</filter>
 			</filter>
+		</route>
+		<route>
+			<from uri="activemq:topic:BUS_IN" />
+			<to uri="stream:out" />
 		</route>
 	</camelContext>
 
@@ -87,9 +97,10 @@
 		<constructor-arg ref="camelContext"/>
 		<constructor-arg name="host" value="localhost"/>
 		<constructor-arg name="port" value="27017"/>
-		<constructor-arg name="db" value="newsWidgetExample"/>
+		<constructor-arg name="db" value="newsWidget"/>
 		<constructor-arg name="responseRoute" value="activemq:topic:BUS_IN" />
 	</bean>
-
+	<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
+	</bean> 
 
 </beans>

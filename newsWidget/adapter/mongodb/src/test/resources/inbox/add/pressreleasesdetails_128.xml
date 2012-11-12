@@ -19,7 +19,7 @@
   *********************************************************************//*
   -->
 
-<uxb_entity uuid="128" language="DE" destinations="mongodb" command="add" objectType="news">
+<uxb_entity uuid="128" language="DE" destinations="postgres,mongodb" command="add" objectType="news">
 	<uxb_content>
 		<fs_id>128</fs_id>
 		<language>DE</language>

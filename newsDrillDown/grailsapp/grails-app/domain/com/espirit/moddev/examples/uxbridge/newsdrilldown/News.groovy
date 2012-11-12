@@ -41,7 +41,7 @@ class News implements Comparable<News> {
 	String subheadline
 	String teaser
 	String content
-	Long lastmodified
+	Long lastmodified=new Date().getTime()
 
 	static mapping = {
 		content type: "text"

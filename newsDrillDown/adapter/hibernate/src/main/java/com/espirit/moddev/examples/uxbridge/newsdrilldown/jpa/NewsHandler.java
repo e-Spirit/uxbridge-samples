@@ -52,7 +52,7 @@ import java.util.List;
  *  
  */
 @Repository
-public class NewsHandler extends AbstractHandler {
+public class NewsHandler{
 
     /**
      * The Constant logger.
@@ -114,41 +114,18 @@ public class NewsHandler extends AbstractHandler {
      *
      * @param entity The newsdrilldown
      */
-    public void add(UXBEntity entity) {
+    public void add(UXBEntity entity) throws Exception {
 
-        if (entity == null) {
-            logger.warn("no UXBentity given, no action");
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL,
-                    DESTINATION, "no uxbentity");
-            return;
+    		handle(entity);
+
         }
-
-        try {
-            handle(entity);
-
-            sendStatusMessage(context, this.responseRoute, STATUS_OK,
-                    DESTINATION, null, entity);
-        } catch (Exception e) {
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL,
-                    DESTINATION, stackToString(e), entity);
-            logger.error("Failure while writing to the database", e);
-        }
-    }
 
     /**
      * Deletes a newsdrilldown from the db.
      *
      * @param entity The newsdrilldown to delete
      */
-    public void delete(UXBEntity entity) {
-
-        if (entity == null) {
-            logger.warn("no UXBEntity given, no action");
-
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL,
-                    DESTINATION, "no uxbentity");
-            return;
-        }
+    public void delete(UXBEntity entity) throws Exception{
 
         EntityManager em = null;
         EntityTransaction tx = null;
@@ -190,17 +167,12 @@ public class NewsHandler extends AbstractHandler {
 
                 em.remove(art);
             }
-            sendStatusMessage(context, this.responseRoute, STATUS_OK,
-                    DESTINATION, null, entity);
-
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.setRollbackOnly();
             }
-            logger.error("Failure while deleting from the database", e);
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL,
-                    DESTINATION, stackToString(e), entity);
+            throw e;
         } finally {
             if (tx != null && tx.isActive()) {
                 if (tx.getRollbackOnly()) {
@@ -218,15 +190,7 @@ public class NewsHandler extends AbstractHandler {
      *
      * @param entity Entity containing the expireDate (= createTime of the entity)
      */
-    public void cleanup(UXBEntity entity) {
-
-        if (entity == null) {
-            logger.warn("no UXBEntity given, no action");
-
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL,
-                    DESTINATION, "no uxbentity");
-            return;
-        }
+    public void cleanup(UXBEntity entity)  throws Exception {
 
         EntityManager em = null;
         EntityTransaction tx = null;
@@ -269,15 +233,13 @@ public class NewsHandler extends AbstractHandler {
                 }
             }
 
-            sendStatusMessage(context, this.responseRoute, STATUS_OK, DESTINATION, null, entity);
-
             tx.commit();
         } catch (Exception e) {
             if (tx != null) {
                 tx.setRollbackOnly();
             }
             logger.error("Failure while deleting from the database", e);
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, stackToString(e), entity);
+            throw e;
         } finally {
             if (tx != null && tx.isActive()) {
                 if (tx.getRollbackOnly()) {
@@ -354,7 +316,6 @@ public class NewsHandler extends AbstractHandler {
             if (tx != null && tx.isActive()) {
                 tx.setRollbackOnly();
             }
-            logger.error("Failure while writing to the database", e);
             throw e;
         } finally {
             if (tx != null && tx.isActive()) {

@@ -41,11 +41,20 @@
 	<camelContext id="camelContext" trace="false" xmlns="http://camel.apache.org/schema/spring">
 
 		<package>com.espirit.moddev.examples.uxbridge.newsdrilldown.entity</package>
-
+<onException>
+			<exception>java.io.IOException</exception>
+			<handled>
+				<constant>true</constant>
+			</handled>
+			<to uri="adapterReturn:jms:topic:BUS_IN?destination=mongodb&amp;bodyValue=bodyTemp" />
+		</onException>
 		<route id="uxbridge-commands">
 			<from uri="jms:topic:BUS_OUT" />
 			<filter>
 				<xpath>//uxb_entity[contains(@destinations, 'mongodb')]</xpath>
+				<camel:setHeader headerName="bodyTemp">
+						<simple>${body}</simple>
+					</camel:setHeader>
 				<filter>
 					<xpath>//uxb_entity[@objectType = 'news_article']</xpath>
 					<filter>
@@ -63,6 +72,7 @@
 						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
 						<bean ref="newsHandler" method="cleanup" />
 					</filter>
+					<to uri="adapterReturn:jms:topic:BUS_IN" />
 				</filter>
 			</filter>
 		</route>
@@ -85,5 +95,6 @@
 			</bean>
 		</property>
 	</bean>
-
+<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
+	</bean>
 </beans>

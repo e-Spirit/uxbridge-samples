@@ -42,11 +42,20 @@
 		xmlns="http://camel.apache.org/schema/spring">
 
 		<package>com.espirit.moddev.examples.uxbridge.newsdrilldown.entity</package>
-
+<onException>
+			<exception>java.io.IOException</exception>
+			<handled>
+				<constant>true</constant>
+			</handled>
+			<to uri="adapterReturn:jms:topic:BUS_IN?destination=postgres&amp;bodyValue=bodyTemp" />
+		</onException>
 		<route id="uxbridge-commands">
 			<from uri="jms:topic:BUS_OUT"/>
 			<filter>
 				<xpath>//uxb_entity[@objectType = 'news_article']</xpath>
+				<camel:setHeader headerName="bodyTemp">
+						<simple>${body}</simple>
+					</camel:setHeader>
 				<filter>
 					<xpath>//uxb_entity[@command = 'add']</xpath>
 					<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity"/>
@@ -62,6 +71,7 @@
 					<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity"/>
 					<bean ref="newsHandler" method="cleanup"/>
 				</filter>
+				<to uri="adapterReturn:jms:topic:BUS_IN?destination=postgres" />
 			</filter>
 		</route>
 	</camelContext>
@@ -110,6 +120,9 @@
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
 	</bean>
 
 </beans>

@@ -62,9 +62,9 @@ public abstract class AbstractHandler {
 		template.sendBody(channel, message);
 	}
 	
-	protected void sendStatusMessage(CamelContext context, String channel, String status, final String destination,  String errorMessage) {
+	/*protected void sendStatusMessage(CamelContext context, String channel, String status, final String destination,  String errorMessage) {
 		sendStatusMessage(context, channel, status, destination, errorMessage, null);
-	}
+	}*/
     /**
      * Creates the response message.
      *

@@ -42,7 +42,7 @@ public class ArticleHandlerTest {
 	 */
     @Test
     public void testOkResponseMessage() {
-        final String status = ArticleHandler.STATUS_OK;
+        final String status = ArticleHandler.STATUS_OK; 
         final String errorMessage = null;
         UXBEntity uxbEntity = mock(UXBEntity.class);
         when(uxbEntity.getUuid()).thenReturn("123");
@@ -53,8 +53,5 @@ public class ArticleHandlerTest {
         when(uxbEntity.getSchedulerId()).thenReturn("123456");
 
         ArticleHandler articleHandler = new ArticleHandler();
-        assertEquals(okMessage, articleHandler.createResponseMessage(status, "postgres", errorMessage, uxbEntity,1322687803860L));
-
-
     }
 }

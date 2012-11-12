@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  //**********************************************************************
+  uxbridge.samples.newswidget.mongodb
+  %%
+  Copyright (C) 2012 e-Spirit AG
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  *********************************************************************//*
+  -->
+
+<uxb_entity uuid="132" language="DE" destinations="mongodb" command="add" objectType="news">
+	<uxb_content><![CDATA[
+	{
+		"_id":{$oid:"000000000000000000013201"},
+		"aid":132,
+		"language":"DE",
+		"date":{"$date":"2010-10-13T11:00:37Z"},
+		"headline":"Neue Produktreihe",
+		"subHeadline":"Dünnschichtmodule auf dem Vormarsch",
+		"teaser":"Bei stark schwankenden Wetterverhältnissen sind die Dünnschichtmodule unserer neuen Produktreihe besonders empfehlenswert. Ob bei hohen Temperaturen oder diffusen Lichtverhältnissen die Module weisen beständig eine gleichmäßige Produktionskapazität auf. Durch die amorphe Siliziumschicht werden Wirkungsgrade von etwa 20 % erzielt, da u.a. Light-Soaking-Effekte verhindert werden.",
+		"content":"Zertifizierung&lt;p class=&quot;section&quot;&gt;Unsere Dünnschichtmodule haben alle für die Zertifizierung erforderlichen Tests bestanden. Dabei wurden die Module mehrere Monate lang umfangreichen Langzeittests unterzogen: darunter beschleunigte Lebensdauertestreihen wie Wärme- und Kältebeständigkeit, Wärmezyklen, Feuchtigkeits- und UV-Beständigkeit sowie mechanische Belastungsprüfungen. Alle Tests konnten erfolgreich abgeschlossen werden.&lt;/p&gt;fs://7/r/1111/DE/TextBildTeaser/17922/41c3465f/x.jpgVorteile für die Kunden&lt;p class=&quot;section&quot;&gt;Die Zertifizierung garantiert hohe Widerstandsfähigkeit und Qualität von den gefertigten Solarpannels. Die Module erzielen einen höheren Preis und sind in vielen europäischen Ländern - derzeit der größte Markt für Dünnschicht-Module - für Förderungszulassungen zwingend erforderlich. Die Zertifizierung garantiert zusätzlich, dass die Tests für erweiterte Modullebensdauer und -sicherheit den neuesten Standards entsprechen; sie gilt weltweit und ist ein weiterer Teil der schnell wachsenden Produkt- und Serviceplattform von Mithras Energy.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere neuen Dünnschichtmodule:&lt;br /&gt; &lt;/p&gt;Zertifizierung&lt;p class=&quot;section&quot;&gt;Unsere Dünnschichtmodule haben alle für die Zertifizierung erforderlichen Tests bestanden. Dabei wurden die Module mehrere Monate lang umfangreichen Langzeittests unterzogen: darunter beschleunigte Lebensdauertestreihen wie Wärme- und Kältebeständigkeit, Wärmezyklen, Feuchtigkeits- und UV-Beständigkeit sowie mechanische Belastungsprüfungen. Alle Tests konnten erfolgreich abgeschlossen werden.&lt;/p&gt;fs://7/r/1111/DE/TextBildTeaser/17922/41c3465f/x.jpgVorteile für die Kunden&lt;p class=&quot;section&quot;&gt;Die Zertifizierung garantiert hohe Widerstandsfähigkeit und Qualität von den gefertigten Solarpannels. Die Module erzielen einen höheren Preis und sind in vielen europäischen Ländern - derzeit der größte Markt für Dünnschicht-Module - für Förderungszulassungen zwingend erforderlich. Die Zertifizierung garantiert zusätzlich, dass die Tests für erweiterte Modullebensdauer und -sicherheit den neuesten Standards entsprechen; sie gilt weltweit und ist ein weiterer Teil der schnell wachsenden Produkt- und Serviceplattform von Mithras Energy.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere neuen Dünnschichtmodule:&lt;br /&gt; &lt;/p&gt;Zertifizierung&lt;p class=&quot;section&quot;&gt;Unsere Dünnschichtmodule haben alle für die Zertifizierung erforderlichen Tests bestanden. Dabei wurden die Module mehrere Monate lang umfangreichen Langzeittests unterzogen: darunter beschleunigte Lebensdauertestreihen wie Wärme- und Kältebeständigkeit, Wärmezyklen, Feuchtigkeits- und UV-Beständigkeit sowie mechanische Belastungsprüfungen. Alle Tests konnten erfolgreich abgeschlossen werden.&lt;/p&gt;fs://7/r/1111/DE/TextBildTeaser/17922/41c3465f/x.jpgVorteile für die Kunden&lt;p class=&quot;section&quot;&gt;Die Zertifizierung garantiert hohe Widerstandsfähigkeit und Qualität von den gefertigten Solarpannels. Die Module erzielen einen höheren Preis und sind in vielen europäischen Ländern - derzeit der größte Markt für Dünnschicht-Module - für Förderungszulassungen zwingend erforderlich. Die Zertifizierung garantiert zusätzlich, dass die Tests für erweiterte Modullebensdauer und -sicherheit den neuesten Standards entsprechen; sie gilt weltweit und ist ein weiterer Teil der schnell wachsenden Produkt- und Serviceplattform von Mithras Energy.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere neuen Dünnschichtmodule:&lt;br /&gt; &lt;/p&gt;",
+		"lastmodified":""
+	}
+	]]>
+	</uxb_content>
+</uxb_entity>

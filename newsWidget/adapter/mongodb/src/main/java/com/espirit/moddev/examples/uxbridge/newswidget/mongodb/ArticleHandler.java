@@ -21,7 +21,6 @@ package com.espirit.moddev.examples.uxbridge.newswidget.mongodb;
  */
 
 
-import com.espirit.moddev.examples.uxbridge.newswidget.AbstractHandler;
 import com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity;
 import com.mongodb.*;
 
@@ -32,7 +31,7 @@ import org.apache.log4j.Logger;
  * This class has the ability to add, delete and cleanup data records in a MongoDB database
  * which might be used as content-repository for an UX-Bridge application.
  */
-public class ArticleHandler extends AbstractHandler {
+public class ArticleHandler {
 
     /**
      * The Constant logger.
@@ -48,6 +47,12 @@ public class ArticleHandler extends AbstractHandler {
      * The Constant DESTINATION contains the destination of the messages coming from the broker.
      */
     private static final String DESTINATION = "mongodb";
+    
+    /** The Constant STATUS_OK. */
+	public static final String STATUS_OK = "OK";
+    
+    /** The Constant STATUS_FAIL. */
+    public static final String STATUS_FAIL = "FAIL";
 
     /**
      * The context.
@@ -115,42 +120,30 @@ public class ArticleHandler extends AbstractHandler {
      *
      * @param entity The news article
      */
-    public void add(UXBEntity entity) {
+    public void add(UXBEntity entity) throws Exception{
 
-        if (entity == null) {
-            logger.warn("no UXBEntity given, no action");
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, "no UXBEntity");
-            return;
+    	DBObject item = getById(Long.parseLong(entity.getUxb_content().getFs_id()), entity.getLanguage());
+
+        /*
+                    * If the item exists in the db, we update the content and the title of the existing item
+                    */
+        if (item != null) {
+            item.put("content", entity.getUxb_content().getContent());
+            item.put("title", entity.getUxb_content().getHeadline());
+            item.put("url", entity.getUxb_content().getUrl());
+            item.put("aid", Long.parseLong(entity.getUxb_content().getFs_id()));
+            item.put("language", entity.getUxb_content().getLanguage());
+            item.put("lastmodified", entity.getCreateTime());
+
+            BasicDBObject query = new BasicDBObject();
+            query.put("_id", item.get("_id"));
+            articles.update(query, item);
+        } else {
+            item = buildArticle(entity);
+            item.put("_id", generateIdentifier(COLLECTION_NAME, mdb));
+
+            articles.insert(item);
         }
-
-        try {
-            DBObject item = getById(Long.parseLong(entity.getUuid()), entity.getLanguage());
-
-            /*
-                        * If the item exists in the db, we update the content and the title of the existing item
-                        */
-            if (item != null) {
-                item.put("content", entity.getUxb_content().getContent());
-                item.put("title", entity.getUxb_content().getHeadline());
-                item.put("url", entity.getUxb_content().getUrl());
-                item.put("aid", Long.parseLong(entity.getUxb_content().getFs_id()));
-                item.put("language", entity.getUxb_content().getLanguage());
-                item.put("lastmodified", entity.getCreateTime());
-
-                BasicDBObject query = new BasicDBObject();
-                query.put("_id", item.get("_id"));
-                articles.update(query, item);
-            } else {
-                item = buildArticle(entity);
-                item.put("_id", generateIdentifier(COLLECTION_NAME, mdb));
-
-                articles.insert(item);
-            }
-            sendStatusMessage(context, this.responseRoute, STATUS_OK, DESTINATION, null, entity);
-        } catch (Exception e) {
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, stackToString(e), entity);
-        }
-
     }
 
     /**
@@ -158,29 +151,17 @@ public class ArticleHandler extends AbstractHandler {
      *
      * @param entity The article to delete
      */
-    public void delete(UXBEntity entity) {
+    public void delete(UXBEntity entity) throws Exception{
 
-        if (entity == null) {
-            logger.warn("no UXBEntity given, no action");
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, "no UXBEntity");
-            return;
-        }
-
-        try {
-            // delete item
-            DBObject item = getById(Long.parseLong(entity.getUuid()), entity.getLanguage());
-            if (item != null) {
-                // delete the article
-                DBObject query = new BasicDBObject();
-                query.put("_id", item.get("_id"));
-                query.put("aid", item.get("aid"));
-                query.put("language", item.get("language"));
-                articles.remove(query);
-            }
-            sendStatusMessage(context, this.responseRoute, STATUS_OK, DESTINATION, null, entity);
-        } catch (Exception e) {
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, stackToString(e), entity);
-
+    	// delete item
+        DBObject item = getById(Long.parseLong(entity.getUuid()), entity.getLanguage());
+        if (item != null) {
+            // delete the article
+            DBObject query = new BasicDBObject();
+            query.put("_id", item.get("_id"));
+            query.put("aid", item.get("aid"));
+            query.put("language", item.get("language"));
+            articles.remove(query);
         }
     }
 
@@ -189,28 +170,16 @@ public class ArticleHandler extends AbstractHandler {
      *
      * @param entity Entity containing the expireDate (= createTime of the entity)
      */
-    public void cleanup(UXBEntity entity) {
+    public void cleanup(UXBEntity entity) throws Exception{
 
-        if (entity == null) {
-            logger.warn("no UXBEntity given, no action");
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, "no UXBEntity");
-            return;
-        }
-
-        try {
-            // delete items
-            DBCursor items = getByLastmodified(entity.getCreateTime());
-            for (DBObject item : items) {
-                DBObject query = new BasicDBObject();
-                query.put("_id", item.get("_id"));
-                query.put("aid", item.get("aid"));
-                query.put("language", item.get("language"));
-                articles.remove(query);
-            }
-            sendStatusMessage(context, this.responseRoute, STATUS_OK, DESTINATION, null, entity);
-        } catch (Exception e) {
-            sendStatusMessage(context, this.responseRoute, STATUS_FAIL, DESTINATION, stackToString(e), entity);
-
+    	// delete items
+        DBCursor items = getByLastmodified(entity.getCreateTime());
+        for (DBObject item : items) {
+            DBObject query = new BasicDBObject();
+            query.put("_id", item.get("_id"));
+            query.put("aid", item.get("aid"));
+            query.put("language", item.get("language"));
+            articles.remove(query);
         }
     }
 
@@ -255,7 +224,7 @@ public class ArticleHandler extends AbstractHandler {
      */
     private BasicDBObject buildArticle(UXBEntity entity) {
         BasicDBObject art = new BasicDBObject();
-        art.put("aid", Long.parseLong(entity.getUuid()));
+        art.put("aid", Long.parseLong(entity.getUxb_content().getFs_id()));
         art.put("content", entity.getUxb_content().getContent());
         art.put("created", entity.getUxb_content().getDate());
         art.put("title", entity.getUxb_content().getHeadline());

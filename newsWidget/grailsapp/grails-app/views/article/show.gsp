@@ -68,6 +68,15 @@
 					
 				</li>
 				</g:if>
+				
+			 <g:if test="${articleInstance?.lastmodified}">
+				<li class="fieldcontain">
+					<span id="created-label" class="property-label"><g:message code="article.lastmodified.label" default="Last modified" /></span>
+					
+						<span class="property-value" aria-labelledby="created-label"><g:formatDate date="${articleInstance?.lastmodified}" /></span>
+					
+				</li>
+				</g:if>
 			
 				<g:if test="${articleInstance?.url}">
 				<li class="fieldcontain">

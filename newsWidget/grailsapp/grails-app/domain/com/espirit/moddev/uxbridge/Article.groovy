@@ -42,7 +42,7 @@ class Article {
     /**
 	 date of last modification
 	 */
-	Long lastmodified
+	Long lastmodified=new Date().getTime()
 	/**
 	 the URL for linking to FirstSpirit
 	 */

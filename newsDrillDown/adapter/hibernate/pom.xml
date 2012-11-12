@@ -28,7 +28,11 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>com.espirit.moddev.uxbridge</groupId>
+			<artifactId>uxbridge-camel-component</artifactId>
+			<version>${uxbridge.version}</version>
+		</dependency>
 		<!-- Camel Dependencies -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>

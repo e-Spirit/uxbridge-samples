@@ -45,13 +45,20 @@
 	<camelContext id="camelContext" trace="false" xmlns="http://camel.apache.org/schema/spring">
 
 		<package>com.espirit.moddev.examples.uxbridge.newswidget.entity</package>
-
+		<onException>
+			<exception>java.lang.Exception</exception>
+			<handled>
+				<constant>true</constant>
+			</handled>
+			<to uri="adapterReturn:activemq:topic:BUS_IN?destination=postgres&amp;bodyValue=bodyTemp" />
+		</onException>
 		<route id="uxbridge-commands">
 			<from uri="activemq:Consumer.newsWidgetHibernate.VirtualTopic.BUS_OUT"/>
 			<filter>
 				<xpath>//uxb_entity[contains(@destinations, 'postgres')]</xpath>
 				<filter>
 					<xpath>//uxb_entity[@objectType = 'news']</xpath>
+					<camel:setHeader headerName="bodyTemp"><simple>${body}</simple></camel:setHeader>
 					<filter>
 						<xpath>//uxb_entity[@command = 'add']</xpath>
 						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity"/>
@@ -67,8 +74,13 @@
 						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity"/>
 						<bean ref="articleHandler" method="cleanup"/>
 					</filter>
+					<to uri="adapterReturn:activemq:topic:BUS_IN?destination=postgres" />
 				</filter>
 			</filter>
+		</route>
+		<route>
+			<from uri="activemq:topic:BUS_IN" />
+			<to uri="stream:out" />
 		</route>
 	</camelContext>
 
@@ -114,5 +126,6 @@
 		  class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>
 	</bean>
-
+	<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
+	</bean> 
 </beans>

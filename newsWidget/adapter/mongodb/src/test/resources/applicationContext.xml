@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  //**********************************************************************
-  uxbridge.samples.newswidget.mongodb
-  %%
-  Copyright (C) 2012 e-Spirit AG
-  %%
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-  
-       http://www.apache.org/licenses/LICENSE-2.0
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  *********************************************************************//*
-  -->
+<!-- //********************************************************************** 
+	uxbridge.samples.newswidget.mongodb %% Copyright (C) 2012 e-Spirit AG %% 
+	Licensed under the Apache License, Version 2.0 (the "License"); you may not 
+	use this file except in compliance with the License. You may obtain a copy 
+	of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. *********************************************************************//* -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
@@ -43,12 +33,20 @@
 
 		<package>com.espirit.moddev.examples.uxbridge.newswidget.entity</package>
 
+		<onException>
+			<exception>java.lang.Exception</exception>
+			<handled>
+				<constant>true</constant>
+			</handled>
+			<to uri="adapterReturn:jms:topic:BUS_IN?destination=mongodb&amp;bodyValue=bodyTemp" />
+		</onException>
 		<route id="uxbridge-commands">
 			<from uri="jms:topic:BUS_OUT" />
 			<filter>
 				<xpath>//uxb_entity[contains(@destinations, 'mongodb')]</xpath>
 				<filter>
 					<xpath>//uxb_entity[@objectType = 'news']</xpath>
+					<camel:setHeader headerName="bodyTemp"><simple>${body}</simple></camel:setHeader>
 					<filter>
 						<xpath>//uxb_entity[@command = 'add']</xpath>
 						<convertBodyTo
@@ -61,14 +59,19 @@
 							type="com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity" />
 						<bean ref="articleHandler" method="delete" />
 					</filter>
-                    <filter>
+					<filter>
 						<xpath>//uxb_entity[@command = 'cleanup']</xpath>
 						<convertBodyTo
 							type="com.espirit.moddev.examples.uxbridge.newswidget.entity.UXBEntity" />
 						<bean ref="articleHandler" method="cleanup" />
 					</filter>
+					<to uri="adapterReturn:jms:topic:BUS_IN?destination=mongodb" />
 				</filter>
 			</filter>
+		</route>
+		<route>
+			<from uri="jms:topic:BUS_IN" />
+			<to uri="stream:out" />
 		</route>
 	</camelContext>
 
@@ -90,4 +93,7 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
+	</bean> 
 </beans>

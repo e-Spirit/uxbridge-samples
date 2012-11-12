@@ -83,5 +83,17 @@ environments {
 			password = "postgres"
 		}
 	}
+	
+	mongo {
+    dataSource {
+        grails.plugin.excludes = 'hibernate' 
+        grails.mongo.server = "localhost" 
+        grails.mongo.port = 27017 
+        grails.mongo.username = "" 
+        grails.mongo.password = "" 
+        grails.mongo.dbName = "newsWidget"
+    }
+  }
+	
 	}
 }

@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,20 +24,20 @@ import com.mongodb.DBAddress
 import com.mongodb.DB
 
 class BootStrap {
-	
+
 	def grailsApplication
 
 	private static String subject = "TESTQUEUE"
 
 	def init = { servletContext ->
 		if (Environment.current == Environment.DEVELOPMENT || Environment.current == Environment.TEST || Environment.current == Environment.CUSTOM) {
-			developmentData()
+		//	developmentData()
 		}
 	}
-	
+
 	def destroy = {
 	}
-	
+
 	def developmentData() {
 
 		if (grailsApplication.config.grails.plugin.excludes == "hibernate") {
@@ -96,8 +96,8 @@ class BootStrap {
 					aid = 256
 				}
 
-				def a = new Article(aid: aid, title: title, content: "This content belongs to $i", created: cal.time, url: url, language: "EN")
-				a.save()
+				def a = new Article(aid: aid, title: title, content: "This content belongs to $i", created: cal.time, url: url, language: "EN", lastmodified: 0)
+				a.save(failOnError:true)
 			}
 		}
 	}
