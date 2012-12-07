@@ -75,6 +75,7 @@ class NewsController {
 		// will fetch article titles in this language
 		def lang = params.lang ? params.lang.toUpperCase() : "EN"
 		params.max = Math.min(params.max?.toInteger() ?: 10, 100)
+		
 		render(template:"drilldown", model:[metaCategoryList: MetaCategory.findAllWhere(language: lang), max: params.max, offset: params.offset])
 	}
 

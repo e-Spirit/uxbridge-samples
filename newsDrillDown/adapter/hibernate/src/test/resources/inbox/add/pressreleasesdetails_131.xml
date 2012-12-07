@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uxb_entity uuid="131" language="DE" destinations="postgres,mongodb" command="add" objectType="news_article">
+	<uxb_content>
+		<fs_id>131</fs_id>
+		<language>DE</language>
+		<url>
+			http://localhost/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=131
+</url>
+		<date>2012-01-18T00:00:00+0100</date>
+		<headline>Solare Vielseitigkeit</headline>
+		<subHeadline>Weit verbreiteter Einsatz von monokristallinen Modulen</subHeadline>
+		<teaser>Monokristalline Module sind die sogenannten Allrounder der Solarbranche. Aufgrund ihrer kompakten Bauform und der Leistungsstärke sind diese Module sowohl für PV-Anlagen im Wohnungsbereich, Großanlagen auf Schrägdächern oder aber für den mobilen Einsatz optimal geeignet. Der eloxierte Gehäuserahmen ist verstärkt und bildet mit dem spezialgehärteten Frontglas eine herausragende Schutzeinheit für extreme Wetterbedingungen.</teaser>
+		<content></content>
+
+		
+		
+		
+		
+		
+			
+			
+				
+					
+						
+					
+				
+			
+		
+			
+			
+				
+					
+				
+			
+		
+			
+			
+				
+					
+				
+			
+		
+		
+		
+		
+		<metaCategories>
+		
+		
+			<metaCategory>
+				<fs_id>3778</fs_id>
+				<name>Produkte</name>
+				<categories>
+				
+					<category>
+						<fs_id>3781</fs_id>
+						<name>Netzanschlusseinheiten</name>
+					</category>
+				
+					<category>
+						<fs_id>3782</fs_id>
+						<name>Dünnschichtmodule</name>
+					</category>
+				
+					<category>
+						<fs_id>3784</fs_id>
+						<name>Solar</name>
+					</category>
+				
+					<category>
+						<fs_id>3786</fs_id>
+						<name>Neuentwicklung</name>
+					</category>
+				
+				</categories>
+			</metaCategory>
+		
+		
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>

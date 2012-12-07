@@ -33,10 +33,11 @@ class Category {
 	Long lastmodified=new Date().getTime()
 
 	static belongsTo = MetaCategory
-	static hasMany = [news:News,metaCategories:MetaCategory]
+	static hasMany = [news:News, metaCategories:MetaCategory]
 
 	static mapping = {
 		news joinTable: [name: "category_news", key: 'category_id' ]
+		//collection "newsCategory"
 	}
 	
 	static constraints = {

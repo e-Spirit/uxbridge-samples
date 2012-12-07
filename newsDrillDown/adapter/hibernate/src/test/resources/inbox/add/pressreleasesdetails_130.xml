@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uxb_entity uuid="130" language="DE" destinations="postgres,mongodb" command="add" objectType="news_article">
+	<uxb_content>
+		<fs_id>130</fs_id>
+		<language>DE</language>
+		<url>
+			http://localhost/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=130
+		</url>
+		<date>2012-01-10T00:00:00+0100</date>
+		<headline>Neuer Geschäftsführer bei Mithras Energy</headline>
+		<subHeadline>Hans Energie verstärkt die Geschäftsführung des Sonninger Unternehmens</subHeadline>
+		<teaser>Seit dem 1. Januar 2008 wird die Mithras Energy Solartechnik GmbH in der Geschäftsführung durch Hans Energie verstärkt. Damit trägt das Unternehmen dem Wachstum der letzten Monate Rechnung und bildet den Erfolg des Unternehmens ab.</teaser>
+		<content></content>
+
+		
+		
+		
+		
+		
+			
+			
+				
+					
+						
+					
+				
+			
+		
+			
+			
+				
+					
+				
+			
+		
+		
+		
+		
+		<metaCategories>
+		
+		
+			<metaCategory>
+				<fs_id>3777</fs_id>
+				<name>Firma</name>
+				<categories>
+				
+					<category>
+						<fs_id>3780</fs_id>
+						<name>Stellen</name>
+					</category>
+				
+					<category>
+						<fs_id>3783</fs_id>
+						<name>Geschäftsführung</name>
+					</category>
+				
+					<category>
+						<fs_id>3786</fs_id>
+						<name>Neuentwicklung</name>
+					</category>
+				
+				</categories>
+			</metaCategory>
+		
+		
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>

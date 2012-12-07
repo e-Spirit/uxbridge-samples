@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -39,7 +39,7 @@ hibernate {
 // environment specific settings
 environments {
 	development {
-		
+
 		dataSource {
 			dbCreate = "create-drop"
 			url = "jdbc:h2:mem:devDb;MVCC=TRUE"
@@ -47,7 +47,7 @@ environments {
 			username = "sa"
 			password = ""
 		}
-		
+
 	}
 	test {
 		dataSource {
@@ -64,7 +64,7 @@ environments {
 	testvm {
 		dataSource {
 				dbCreate = "create-drop"
-				url = "jdbc:postgresql://localhost/widgetexample"
+				url = "jdbc:postgresql://localhost/news_widget"
 				driverClassName = "org.postgresql.Driver"
 				dialect = org.hibernate.dialect.PostgreSQLDialect
 				username = "postgres"
@@ -80,20 +80,20 @@ environments {
 			driverClassName = "org.postgresql.Driver"
 			dialect = org.hibernate.dialect.PostgreSQLDialect
 			username = "postgres"
-			password = "postgres"
+			password = "admin"
 		}
 	}
-	
+
 	mongo {
     dataSource {
-        grails.plugin.excludes = 'hibernate' 
-        grails.mongo.server = "localhost" 
-        grails.mongo.port = 27017 
-        grails.mongo.username = "" 
-        grails.mongo.password = "" 
+        grails.plugin.excludes = 'hibernate'
+        grails.mongo.server = "localhost"
+        grails.mongo.port = 27017
+        grails.mongo.username = ""
+        grails.mongo.password = ""
         grails.mongo.dbName = "newsWidget"
     }
   }
-	
+
 	}
 }

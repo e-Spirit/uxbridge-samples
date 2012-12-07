@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uxb_entity uuid="128" language="DE" destinations="postgres,mongodb"
+	command="add" objectType="news_article">
+	<uxb_content>
+		<fs_id>128</fs_id>
+		<language>DE</language>
+		<url>
+			http://localhost/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=128
+		</url>
+		<date>2012-01-02T00:00:00+0100</date>
+		<headline>Mithras Energy erhält Solarpreis der Stadt Sonningen
+		</headline>
+		<subHeadline>Stetige Innovation zahlt sich aus</subHeadline>
+		<teaser>In einer Feierstunde wurde der Mithras Energy vom
+			Bürgermeister Karl-Heinz Schmidt der der Solarpreis der Sonnigen
+			verliehen. Mit dem Preis werden Unternehmen und deren stetiger
+			Einsatz für die Solarenergie im deutschsprachigen Raum ausgezeichnet.
+			Der Geschäftsführer von Mithras Energy nahm diesen Preis dankend
+			entgegen: „Wir freuen uns, dass die Leistung, die wir seit Jahren
+			erbringen, auch über die Branchengrenzen hinaus bekannt geworden sind
+			und setzen alles dran, dass unserer Leistungen auch weiterhin
+			ausstrahlen werden.“ </teaser>
+		<content></content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<metaCategories>
+
+
+			<metaCategory>
+				<fs_id>3777</fs_id>
+				<name>Firma</name>
+				<categories>
+
+					<category>
+						<fs_id>3780</fs_id>
+						<name>Stellen</name>
+					</category>
+
+					<category>
+						<fs_id>3783</fs_id>
+						<name>Geschäftsführung</name>
+					</category>
+
+					<category>
+						<fs_id>3786</fs_id>
+						<name>Neuentwicklung</name>
+					</category>
+
+				</categories>
+			</metaCategory>
+
+
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>

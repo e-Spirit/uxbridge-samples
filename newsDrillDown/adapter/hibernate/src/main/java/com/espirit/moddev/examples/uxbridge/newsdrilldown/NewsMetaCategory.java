@@ -175,4 +175,26 @@ public class NewsMetaCategory {
 	public void setLastmodified(long lastmodified) {
 		this.lastmodified = lastmodified;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof NewsMetaCategory)) {
+			return false;
+		}
+		NewsMetaCategory mc = (NewsMetaCategory)obj;
+		if (mc.fs_id == this.fs_id && mc.language.equals(this.language)) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 1;
+		hash = hash * 31 + this.fs_id.hashCode();
+		hash = hash * 31 + this.language.hashCode();
+		
+		
+		return hash;
+	}
 }

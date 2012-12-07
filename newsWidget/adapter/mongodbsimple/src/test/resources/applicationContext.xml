@@ -103,7 +103,7 @@
 
 	<bean id="myDb" class="com.mongodb.Mongo">
 		<constructor-arg name="host" value="localhost" />
-		<!-- <constructor-arg name="port" value="2307" /> -->
+		<constructor-arg name="port" value="27017" />
 	</bean>
 
 	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">

@@ -72,15 +72,15 @@ public class MongoCommandITCase extends BaseTest {
     public static void doBeforeClass() throws Exception {
 
         // start mongomock
-        mockMongo = new MockMongo();
-        mockMongo.start();
+        //mockMongo = new MockMongo();
+        //mockMongo.start();
 
         broker = new BrokerService();
         // configure the broker
         broker.addConnector("tcp://localhost:61501");
         broker.start();
 
-        ApplicationContext ctx = new FileSystemXmlApplicationContext(getBasePath("mongodb") + "src/test/resources/applicationContext.xml");
+        ApplicationContext ctx = new FileSystemXmlApplicationContext(getBasePath("mongodbsimple") + "src/test/resources/applicationContext.xml");
 
         camelContext = (CamelContext) ctx.getBean("camelContext");
         camelContext.start();
@@ -103,8 +103,8 @@ public class MongoCommandITCase extends BaseTest {
         //db.dropDatabase();
         m.close();
 
-        if (mockMongo != null)
-            mockMongo.stop();
+        //if (mockMongo != null)
+        //    mockMongo.stop();
     }
 
     /**
@@ -151,12 +151,12 @@ public class MongoCommandITCase extends BaseTest {
             assertEquals(id+" is still available",0, articles.count(query));
 
             // load content
-            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodbsimple");
             // send content to jms broker
             template.sendBody("jms:topic:BUS_OUT", content);
 
             // wait
-            Thread.sleep(2000);
+            Thread.sleep(20000);
 
             // item should be inserted to db
             assertEquals(id+" is not inserted",1, articles.count(query));
@@ -167,11 +167,11 @@ public class MongoCommandITCase extends BaseTest {
         // now check, that items are not insert twice if resend the same content
         for (String id : ids) {
             // load content
-            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodbsimple");
             // send content to jms broker
             template.sendBody("jms:topic:BUS_OUT", content);
             // wait
-            Thread.sleep(2000);
+            Thread.sleep(20000);
 
             // only one item should be present
             DBObject query = new BasicDBObject();
@@ -204,19 +204,19 @@ public class MongoCommandITCase extends BaseTest {
             assertEquals(id+" is still available (insert)",0, articles.count(query));
 
             // load content
-            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodbsimple");
             // send content to jms broker
             template.sendBody("jms:topic:BUS_OUT", content);
         }
         // wait
-        Thread.sleep(10000);
+        Thread.sleep(30000);
 
         assertEquals("not all items are present", ids.length, countArticles());
 
         // now check, that items are not insert twice if resend the same content
         for (String id : ids) {
             // load content
-            String content = getContent("src/test/resources/inbox/delete/pressreleasesdetails_" + id + ".xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/delete/pressreleasesdetails_" + id + ".xml", "mongodbsimple");
             // send content to jms broker
             template.sendBody("jms:topic:BUS_OUT", content);
             // wait
@@ -257,7 +257,7 @@ public class MongoCommandITCase extends BaseTest {
             assertEquals(0, articles.count(query));
 
             // load content
-            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodbsimple");
             // patch content - add createTime
             content = content.replace("\"lastmodified\":\"\"", "\"lastmodified\":" + System.currentTimeMillis() );
             // send content to jms broker
@@ -282,7 +282,7 @@ public class MongoCommandITCase extends BaseTest {
             assertEquals(1, articles.count(query));
 
             // load content
-            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/add/pressreleasesdetails_" + id + ".xml", "mongodbsimple");
             // patch content - add createTime
             content = content.replace("\"lastmodified\":\"\"", "\"lastmodified\":" + System.currentTimeMillis());
             // send content to jms broker
@@ -296,7 +296,7 @@ public class MongoCommandITCase extends BaseTest {
         // now check, that old items are cleaned up
         for (String id : ids) {
             // load content
-            String content = getContent("src/test/resources/inbox/cleanup/pressreleasesdetails.xml", "mongodb");
+            String content = getContent("src/test/resources/inbox/cleanup/pressreleasesdetails.xml", "mongodbsimple");
             // patch content - add createTime
             content = content.replace("createTime=\"134678\"", "createTime=\"" + expiredate + "\"");
             // send content to jms broker

@@ -32,6 +32,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory;
+
 /**
  * The Class UXBMetaCategory represents the xml-tag 'uxb_meta_category' defined in the FirstSpirit presentation channel.
  * It contains the information needed to build a NewsMetaCategory (com.espirit.moddev.examples.uxbridge.newsdrilldown.NewsMetaCategory).
@@ -106,6 +108,5 @@ public class UXBMetaCategory {
 	 */
 	public void setCategories(List<UXBCategory> categories) {
 		this.categories = categories;
-	}
-			
+	}		
 }

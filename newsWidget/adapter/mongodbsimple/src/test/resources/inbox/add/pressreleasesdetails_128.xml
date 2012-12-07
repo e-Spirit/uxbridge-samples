@@ -22,10 +22,10 @@
 <uxb_entity uuid="128" language="DE" destinations="mongodb" command="add" objectType="news" path="the/Path/to/anywhere" schedulerId="123" createTime="1346784569871" startTime="1314567899516">
 	<uxb_content><![CDATA[
 	{
-	 	"_id":{$oid:"000000000000000000012801"},
+		"_id" : 12801,
 		"aid":128,
 		"language":"DE",
-		"date":{ "$date" :"2010-12-30T11:00:31Z"},
+		"date":{ "$date" :"2010-12-30T11:00:31Z" },
 		"headline":"Mithras Energy erhält Solarpreis der Stadt Sonningen",
 		"subHeadline":"Stetige Innovation zahlt sich aus",
 		"teaser":"In einer Feierstunde wurde der Mithras Energy vom Bürgermeister Karl-Heinz Schmidt der der Solarpreis der Sonnigen verliehen. Mit dem Preis werden Unternehmen und deren stetiger Einsatz für die Solarenergie im deutschsprachigen Raum ausgezeichnet. Der Geschäftsführer von Mithras Energy nahm diesen Preis dankend entgegen: „Wir freuen uns, dass die Leistung, die wir seit Jahren erbringen, auch über die Branchengrenzen hinaus bekannt geworden sind und setzen alles dran, dass unserer Leistungen auch weiterhin ausstrahlen werden.",

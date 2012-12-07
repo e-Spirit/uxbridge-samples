@@ -9,9 +9,9 @@ package com.espirit.moddev.examples.uxbridge.newsdrilldown.jpa;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,6 +27,7 @@ import com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBCategory;
 import com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity;
 import com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBMetaCategory;
 import com.mongodb.*;
+
 import org.apache.camel.CamelContext;
 import org.apache.log4j.Logger;
 
@@ -45,7 +46,7 @@ import java.util.ArrayList;
  * This class has the ability to add, delete and cleanup data records in a
  * mongoDB database which might be used as content-repository for an UX-Bridge
  * application.
- * 
+ *
  */
 public class NewsHandler {
 
@@ -58,30 +59,25 @@ public class NewsHandler {
 	 * The Constant NEWS_COLLECTION_NAME contains the name of the collection to
 	 * store the news in
 	 */
-	public static final String NEWS_COLLECTION_NAME = "newsdrilldown";
+	public static final String NEWS_COLLECTION_NAME = "news";
 
 	/**
 	 * The Constant CATEGORY_COLLECTION_NAME contains the name of the collection
 	 * to store the categories in
 	 */
-	public static final String CATEGORY_COLLECTION_NAME = "newsCategory";
+	public static final String CATEGORY_COLLECTION_NAME = "category";
 
 	/**
 	 * The Constant META_CATEGORY_COLLECTION_NAME contains the name of the
 	 * collection to store the metacategories in
 	 */
-	public static final String META_CATEGORY_COLLECTION_NAME = "newsMetaCategory";
+	public static final String META_CATEGORY_COLLECTION_NAME = "metaCategory";
 
 	/**
 	 * The Constant DESTINATION contains the destination of the messages coming
 	 * from the broker.
 	 */
 	private static final String DESTINATION = "mongodb";
-
-	/**
-	 * The context.
-	 */
-	private CamelContext context;
 
 	/**
 	 * The Mongo object.
@@ -109,37 +105,25 @@ public class NewsHandler {
 	private DBCollection dbMetaCategories;
 
 	/**
-	 * The response route.
-	 */
-	private String responseRoute;
-
-	/**
 	 * The webpath.
 	 */
 	private String webpath;
 
 	/**
 	 * Instantiates a new news handler.
-	 * 
-	 * @param context
-	 *            The Camelcontext
+	 *
 	 * @param host
 	 *            Host the mongodb is running
 	 * @param port
 	 *            Port of the mongodb
 	 * @param db
 	 *            The name of the mongodb
-	 * @param responseRoute
-	 *            The route for the response message
 	 * @throws Exception
 	 *             Exception will thrown an database errors
 	 * @param webpath
 	 *            the webpath
 	 */
-	public NewsHandler(CamelContext context, String host, int port, String db,
-			String responseRoute, String webpath) throws Exception {
-		this.context = context;
-		this.responseRoute = responseRoute;
+	public NewsHandler(String host, int port, String db, String webpath) throws Exception {
 		this.webpath = webpath;
 
 		m = new Mongo(host, port);
@@ -166,7 +150,7 @@ public class NewsHandler {
 
 	/**
 	 * Add or update a newsdrilldown item in the db
-	 * 
+	 *
 	 * @param entity
 	 *            The NewsItem
 	 * @throws Exception
@@ -185,7 +169,7 @@ public class NewsHandler {
 
 	/**
 	 * Deletes an item from the db
-	 * 
+	 *
 	 * @param entity
 	 *            The item to delete
 	 * @throws IOException
@@ -235,7 +219,7 @@ public class NewsHandler {
 
 	/**
 	 * Deletes every item older than the creationTime of the UXBEntity.
-	 * 
+	 *
 	 * @param entity
 	 *            Entity containing the expireDate (= createTime of the entity)
 	 */
@@ -280,7 +264,7 @@ public class NewsHandler {
 
 	/**
 	 * handle the update and save process for the news.
-	 * 
+	 *
 	 * @param news
 	 *            the News object
 	 * @throws Exception
@@ -302,6 +286,8 @@ public class NewsHandler {
 			item.put("url", news.getUrl());
 			item.put("version", news.getVersion());
 			item.put("lastmodified", news.getLastmodified());
+
+
 
 			BasicDBObject query = new BasicDBObject();
 			news.setId((Long) item.get("_id"));
@@ -330,16 +316,32 @@ public class NewsHandler {
 		}
 
 		// 2. save categories
+		// add categories to news
+		BasicDBList catList = new BasicDBList();
 		if (news.getCategories() != null) {
 			for (NewsCategory cat : news.getCategories()) {
 				handleCategory(cat, news);
+
+				DBObject tmpCat = getCategoryById(cat.getFs_id(), cat.getLanguage());
+				//catList.add(new DBRef(this.mdb, this.CATEGORY_COLLECTION_NAME, tmpCat.get("_id")));
+				catList.add(tmpCat.get("_id"));
 			}
 		}
+
+
+		// add list of categories to the news
+//		item.put("categories", catList);
+		item.put("categories_$$manyToManyIds", catList);
+
+		BasicDBObject query = new BasicDBObject();
+		query.put("_id", news.getId());
+
+		dbNews.update(query, item);
 	}
 
 	/**
 	 * handle the update and save process for the categories.
-	 * 
+	 *
 	 * @param category
 	 *            the NewsCategory object
 	 * @param news
@@ -362,12 +364,12 @@ public class NewsHandler {
 			item.put("lastmodified", category.getLastmodified());
 
 			// newsdrilldown
-			DBObject tmpNews = getNewsById(news.getFs_id(), news.getLanguage());
-			if (tmpNews != null) {
-				DBRef ref = new DBRef(mdb, NEWS_COLLECTION_NAME,
-						tmpNews.get("_id"));
-				item.put("newsdrilldown", ref);
-			}
+//			DBObject tmpNews = getNewsById(news.getFs_id(), news.getLanguage());
+//			if (tmpNews != null) {
+//				DBRef ref = new DBRef(mdb, NEWS_COLLECTION_NAME,
+//						tmpNews.get("_id"));
+//				item.put("newsdrilldown", ref);
+//			}
 
 			BasicDBObject query = new BasicDBObject();
 			category.setId((Long) item.get("_id"));
@@ -384,12 +386,12 @@ public class NewsHandler {
 			item.put("lastmodified", category.getLastmodified());
 
 			// newsdrilldown
-			DBObject tmpNews = getNewsById(news.getFs_id(), news.getLanguage());
-			if (tmpNews != null) {
-				DBRef ref = new DBRef(mdb, NEWS_COLLECTION_NAME,
-						tmpNews.get("_id"));
-				item.put("newsdrilldown", ref);
-			}
+//			DBObject tmpNews = getNewsById(news.getFs_id(), news.getLanguage());
+//			if (tmpNews != null) {
+//				DBRef ref = new DBRef(mdb, NEWS_COLLECTION_NAME,
+//						tmpNews.get("_id"));
+//				item.put("newsdrilldown", ref);
+//			}
 
 			category.setId(generateIdentifier(CATEGORY_COLLECTION_NAME, mdb));
 			item.put("_id", category.getId());
@@ -399,16 +401,57 @@ public class NewsHandler {
 
 		// 2. save the metaCategories
 		if (category.getMetaCategories() != null) {
+
+
+			BasicDBList metaCatlist = (BasicDBList) item.get("metaCategories_$$manyToManyIds");
+			if (metaCatlist == null) {
+				metaCatlist = new BasicDBList();
+			}
+
 			for (NewsMetaCategory metaCat : category.getMetaCategories()) {
 				handleMetaCategory(metaCat, category);
+
+				if (!metaCatlist.contains(metaCat.getId())) {
+					metaCatlist.add(metaCat.getId());
+				}
+
+				DBObject obj = getMetaCategoryById(metaCat.getFs_id(), metaCat.getLanguage());
+
+				//BasicDBList catlist = (BasicDBList) obj.get("categories");
+				BasicDBList catlist = (BasicDBList) obj.get("categories_$$manyToManyIds");
+				if (catlist == null) {
+					catlist = new BasicDBList();
+				}
+
+
+				//DBRef catRef = new DBRef(this.mdb, this.CATEGORY_COLLECTION_NAME, category.getId());
+				if (!catlist.contains(category.getId())) {
+					catlist.add(category.getId());
+				}
+
+				obj.put("categories_$$manyToManyIds", catlist);
+
+				BasicDBObject query = new BasicDBObject();
+				query.put("_id", (Long) obj.get("_id"));
+
+				dbMetaCategories.update(query, obj);
 			}
+
+
+
+			item.put("metaCategories_$$manyToManyIds", metaCatlist);
+
+			BasicDBObject query = new BasicDBObject();
+			query.put("_id", (Long) item.get("_id"));
+
+			dbCategories.update(query, item);
 		}
 
 	}
 
 	/**
 	 * handle the update and save process for the metacategories.
-	 * 
+	 *
 	 * @param metaCat
 	 *            the NewsMetaCategory object
 	 * @param category
@@ -467,7 +510,7 @@ public class NewsHandler {
 
 	/**
 	 * loads a news by the document id
-	 * 
+	 *
 	 * @param id
 	 *            the id of the document
 	 * @param language
@@ -489,7 +532,7 @@ public class NewsHandler {
 
 	/**
 	 * loads a category by the document id
-	 * 
+	 *
 	 * @param id
 	 *            the id of the document
 	 * @param language
@@ -511,7 +554,7 @@ public class NewsHandler {
 
 	/**
 	 * loads a metacategory by the document id
-	 * 
+	 *
 	 * @param id
 	 *            the id of the document
 	 * @param language
@@ -533,7 +576,7 @@ public class NewsHandler {
 
 	/**
 	 * loads newsdrilldown by lastmodified date
-	 * 
+	 *
 	 * @param expiredate
 	 *            date of expiration
 	 * @return the documents or null
@@ -547,7 +590,7 @@ public class NewsHandler {
 
 	/**
 	 * loads categories by lastmodified date
-	 * 
+	 *
 	 * @param expiredate
 	 *            date of expiration
 	 * @return the documents or null
@@ -561,7 +604,7 @@ public class NewsHandler {
 
 	/**
 	 * loads metacategories by lastmodified date
-	 * 
+	 *
 	 * @param expiredate
 	 *            date of expiration
 	 * @return the documents or null
@@ -575,7 +618,7 @@ public class NewsHandler {
 
 	/**
 	 * builds the news for the UXBEntity JAXB-Entity
-	 * 
+	 *
 	 * @param entity
 	 *            The UXBEntity
 	 * @return a new News instance
@@ -612,7 +655,7 @@ public class NewsHandler {
 
 	/**
 	 * builds the category for the UXBCategory JAXB-Entity
-	 * 
+	 *
 	 * @param uxCat
 	 *            The UXBCategory
 	 * @param entity
@@ -643,7 +686,7 @@ public class NewsHandler {
 
 	/**
 	 * builds the metacategory for the UXBCategory JAXB-Entity
-	 * 
+	 *
 	 * @param uxMetaCat
 	 *            The UXBMetaCategory
 	 * @param entity
@@ -664,7 +707,7 @@ public class NewsHandler {
 
 	/**
 	 * Mongo ID generation like it is done in the grails gorm framework
-	 * 
+	 *
 	 * @param collectionName
 	 *            The name of the collection the id should be generated for
 	 * @param db

@@ -5,7 +5,6 @@ target
 *.iml
 *.ipr
 *.iws
-*.log
 prodDb.properties
 prodDb.script
 atlassian-ide-plugin.xml

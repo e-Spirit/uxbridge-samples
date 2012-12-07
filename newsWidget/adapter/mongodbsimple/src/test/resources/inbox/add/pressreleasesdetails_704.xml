@@ -22,7 +22,7 @@
 <uxb_entity uuid="704" language="DE" destinations="mongodb" command="add" objectType="news">
 	<uxb_content><![CDATA[
 	{
-		"_id":{$oid:"000000000000000000070401"},
+		"_id" : 70401,
 		"aid":704,
 		"language":"DE",
 		"date":{"$date":"2010-11-21T13:31:30Z"},

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<uxb_entity uuid="1000" language="DE" destinations="postgres,mongodb"
+	command="add" objectType="news_article">
+	<uxb_content>
+		<fs_id>1000</fs_id>
+		<language>DE</language>
+		<url>
+			http://localhost/fs4preview_2576/preview/2576/site/DE/current/2583/12399/contentId=1000
+		</url>
+		<date>2012-01-31T00:00:00+0100</date>
+		<headline>Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen
+			ausgezeichnet</headline>
+		<subHeadline>Nun werden auch die Dünnschichtmodule geehrt
+		</subHeadline>
+		<teaser>Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem
+			Solarpreis der Stadt Sonningen ausgezeichnet. In diesem Jahr stehen
+			die Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen
+			Akt Ende des Jahres von der Geschäftsführung und der Belegschaft von
+			Mithras Energy entgegen genommen wurde. Mit der neu entwickelten
+			Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert
+			werden.</teaser>
+		<content></content>
+
+		<metaCategories>
+			<metaCategory>
+				<fs_id>2000</fs_id>
+				<name>Meta 1</name>
+				<categories>
+					<category>
+						<fs_id>2001</fs_id>
+						<name>CAT 1</name>
+					</category>
+					<category>
+						<fs_id>2002</fs_id>
+						<name>CAT 2</name>
+					</category>
+				</categories>
+			</metaCategory>
+
+		</metaCategories>
+	</uxb_content>
+</uxb_entity>

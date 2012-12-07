@@ -171,7 +171,7 @@ public class CommandITCase extends BaseTest {
 		EntityManager em = emf.createEntityManager();
 
 
-		String[] ids = new String[]{"256"};
+		String[] ids = new String[]{"128", "130", "131", "132", "256"};
 
 		// insert all items
 		for (String id : ids) {
@@ -311,9 +311,12 @@ public class CommandITCase extends BaseTest {
 		// Save the current time as expiredate
 		long expiredate = System.currentTimeMillis();
 
+		Thread.sleep(TimeOuts.SHORT);
+		
 		ids = new String[]{"490"};
 		int numberOfNewArticles = ids.length;
 
+		printMetaCats();
 		// insert new items
 		for (String id : ids) {
 			// item should be in the db
@@ -329,6 +332,7 @@ public class CommandITCase extends BaseTest {
 		}
 		// wait
 		Thread.sleep(TimeOuts.LONG);
+		printMetaCats();
 
 		assertEquals("not all news are present", numberOfArticles, countArticles());
 		assertEquals("not all categories are present", 12, countCategories());
@@ -343,8 +347,10 @@ public class CommandITCase extends BaseTest {
 			// send content to jms broker
 			template.sendBody("jms:topic:BUS_OUT", content);
 		}
+		System.out.println("EXPIRE: " + expiredate);
 		// wait
 		Thread.sleep(TimeOuts.LONG);
+		printMetaCats();
 
 		// Check number of articles
 		assertEquals("ups, there are too many news left in the db", numberOfNewArticles, countArticles());
@@ -432,5 +438,24 @@ public class CommandITCase extends BaseTest {
 	@Override
 	public CamelContext getContext() {
 		return camelContext;
+	}
+	
+	public void printMetaCats() throws Exception {
+		System.out.println("\n\n\n");
+		EntityManager em = emf.createEntityManager();
+		try {
+			EntityTransaction et = em.getTransaction();
+			et.begin();
+			Query query = em.createQuery(new StringBuilder().append("SELECT x FROM metaCategory x").toString());
+			List<NewsMetaCategory> metaList = query.getResultList();
+			for (NewsMetaCategory temp : metaList) {
+				System.out.println("META: " + temp.getName() + " / " + temp.getLastmodified());
+			}
+			et.commit();
+		} finally {
+			em.close();
+		}
+		System.out.println("\n\n\n");
+
 	}
 }

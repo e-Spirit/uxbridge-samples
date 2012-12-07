@@ -9,9 +9,9 @@ package com.espirit.moddev.examples.uxbridge.newswidget.mongodb;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -47,53 +47,37 @@ public class ArticleHandler {
      * The Constant DESTINATION contains the destination of the messages coming from the broker.
      */
     private static final String DESTINATION = "mongodb";
-    
+
     /** The Constant STATUS_OK. */
 	public static final String STATUS_OK = "OK";
-    
+
     /** The Constant STATUS_FAIL. */
     public static final String STATUS_FAIL = "FAIL";
-
-    /**
-     * The context.
-     */
-    private CamelContext context;
-
 
     /**
      * The Mongo object.
      */
     private Mongo m;
-    
+
     /**
      * The database.
      */
     private DB mdb;
-    
+
     /**
      * The DBCollection to store the articles in
      */
     private DBCollection articles;
-    
-    /**
-     * The response route.
-     */
-    private String responseRoute;
 
-    /**     
+    /**
      * Instantiates a new news handler.
-     * 
-     * @param context       The Camelcontext
+     *
      * @param host          Host the mongodb is running
      * @param port          Port of the mongodb
      * @param db            The name of the mongodb
-     * @param responseRoute The route for the response message
      * @throws Exception Exception will thrown an database errors
      */
-    public ArticleHandler(CamelContext context, String host, int port, String db, String responseRoute) throws Exception {
-        this.context = context;
-        this.responseRoute = responseRoute;
-
+    public ArticleHandler(String host, int port, String db) throws Exception {
         m = new Mongo(host, port);
         mdb = m.getDB(db);
         articles = mdb.getCollection(COLLECTION_NAME);
@@ -108,7 +92,7 @@ public class ArticleHandler {
         }
     }
 
-    /**     
+    /**
      * Instantiates a new news handler.
      */
     public ArticleHandler() {

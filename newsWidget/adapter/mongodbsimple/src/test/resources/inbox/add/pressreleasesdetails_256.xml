@@ -22,15 +22,17 @@
 <uxb_entity uuid="256" language="DE" destinations="mongodb" command="add" objectType="news">
 	<uxb_content><![CDATA[
 	{
-		"_id":{$oid:"000000000000000000025601"},
-		"aid":256,
-		"language":"DE",
-		"date":{"$date":"2010-01-02T00:24:21Z"},
-		"headline":"Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen ausgezeichnet",
-		"subHeadline":"Nun werden auch die Dünnschichtmodule geehrt",
-		"teaser":"Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem Solarpreis der Stadt Sonningen ausgezeichnet. In diesem Jahr stehen die Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen Akt Ende des Jahres von der Geschäftsführung und der Belegschaft von Mithras Energy entgegen genommen wurde. Mit der neu entwickelten Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert werden.",
-		"content":"Dünnschichtmodule: Die Tandemstruktur&lt;p class=&quot;section&quot;&gt;Dünnschichtzellen unterscheiden sich von traditionellen Solarzellen im Produktionsverfahren und den eingesetzten Materialien. Sie sind extrem langlebig und haltbar.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Das Dünnschichtmodul 1400 modular besteht aus einer amorphen und einer mikrokristallinen Siliziumschicht. Diese mikroamorphe Tandemstruktur absorbiert nicht nur die sichtbaren, sondern auch die nicht sichtbaren Anteile des Sonnenspektrums. Dies führt zu einer besonders effektiven Nutzung der Sonnenenergie.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere neuen Dünnschichtmodule:&lt;br /&gt; &lt;/p&gt;Dünnschichtmodule: Die Tandemstruktur&lt;p class=&quot;section&quot;&gt;Dünnschichtzellen unterscheiden sich von traditionellen Solarzellen im Produktionsverfahren und den eingesetzten Materialien. Sie sind extrem langlebig und haltbar.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Das Dünnschichtmodul 1400 modular besteht aus einer amorphen und einer mikrokristallinen Siliziumschicht. Diese mikroamorphe Tandemstruktur absorbiert nicht nur die sichtbaren, sondern auch die nicht sichtbaren Anteile des Sonnenspektrums. Dies führt zu einer besonders effektiven Nutzung der Sonnenenergie.&lt;/p&gt;&lt;p class=&quot;section&quot;&gt;Erfahren Sie mehr über unsere neuen Dünnschichtmodule:&lt;br /&gt; &lt;/p&gt;",
-		"lastmodified":""
+	"_id":2562164,
+	"aid":256,
+	"language":"DE",
+	"url":"/fs5preview/preview/11/site/DE/current/2541/3236/contentId=256",
+	"lastmodified":1352985877680,
+	
+	"date":{"$date":"2012-08-14T00:00:00Z"},
+	"title":"Mithras Energy erneut mit dem Solarpreis der Stadt Sonningen ausgezeichnet",
+	"subHeadline":"Nun werden auch die Dünnschichtmodule geehrt",
+	"teaser":"Wie schon 2007 so wurde Mithras Energy auch 2008 mit dem Solarpreis der Stadt Sonningen ausgezeichnet. In diesem Jahr stehen die Dünnschichtmodule im Fokus der Ehrung, die in einem feierlichen Akt Ende des Jahres von der Geschäftsführung und der Belegschaft von Mithras Energy entgegen genommen wurde. Mit der neu entwickelten Tandemstruktur konnte die Effektivität der Module um 15 % gesteigert werden.",
+	"content":""
 	}
 	]]>
 	</uxb_content>

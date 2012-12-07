@@ -47,6 +47,7 @@ class News implements Comparable<News> {
 		content type: "text"
 		teaser type: "text"
 		table "newsdrilldown"
+		//collection "newsdrilldown"
 		fs_id index: "fsidindex1,IDX_fsid_lang_1"
 		language index : "IDX_fsid_lang_1"
 		

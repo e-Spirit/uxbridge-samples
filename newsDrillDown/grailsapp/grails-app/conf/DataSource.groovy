@@ -67,5 +67,8 @@ if (System.properties['config.location']) {
 	            }
 	        }
 	    }
+		mongo {
+			databaseName = "newsDrilldownExample"
+		}
 	}
 }

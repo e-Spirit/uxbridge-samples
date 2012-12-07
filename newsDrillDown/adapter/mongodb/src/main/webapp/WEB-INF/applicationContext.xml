@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  //**********************************************************************
-  uxbridge.samples.newsdrilldown.mongodb
-  %%
-  Copyright (C) 2012 e-Spirit AG
-  %%
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-  
-       http://www.apache.org/licenses/LICENSE-2.0
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  *********************************************************************//*
-  -->
+<!-- //**********************************************************************
+	uxbridge.samples.newsdrilldown.mongodb %% Copyright (C) 2012 e-Spirit AG
+	%% Licensed under the Apache License, Version 2.0 (the "License"); you may
+	not use this file except in compliance with the License. You may obtain a
+	copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless
+	required by applicable law or agreed to in writing, software distributed
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for
+	the specific language governing permissions and limitations under the License.
+	*********************************************************************//* -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
@@ -38,15 +29,17 @@
 	<tx:annotation-driven />
 
 	<!-- Simple camel route which send every one minute a message on the console. -->
-	<camelContext id="camelContext" trace="false" xmlns="http://camel.apache.org/schema/spring">
+	<camelContext id="camelContext" trace="false"
+		xmlns="http://camel.apache.org/schema/spring">
 
 		<package>com.espirit.moddev.examples.uxbridge.newsdrilldown.entity</package>
-<onException>
+		<onException>
 			<exception>java.io.IOException</exception>
 			<handled>
 				<constant>true</constant>
 			</handled>
-			<to uri="adapterReturn:activemq:topic:BUS_IN?destination=mongodb&amp;bodyValue=bodyTemp" />
+			<to
+				uri="adapterReturn:activemq:topic:BUS_IN?destination=mongodb&amp;bodyValue=bodyTemp" />
 		</onException>
 		<route id="uxbridge-commands">
 			<from uri="activemq:Consumer.newsDrillDown-MongoDB.VirtualTopic.BUS_OUT" />
@@ -59,17 +52,20 @@
 					</camel:setHeader>
 					<filter>
 						<xpath>//uxb_entity[@command = 'add']</xpath>
-						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
+						<convertBodyTo
+							type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
 						<bean ref="newsHandler" method="add" />
 					</filter>
 					<filter>
 						<xpath>//uxb_entity[@command = 'delete']</xpath>
-						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
+						<convertBodyTo
+							type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
 						<bean ref="newsHandler" method="delete" />
 					</filter>
-					 <filter>
+					<filter>
 						<xpath>//uxb_entity[@command = 'cleanup']</xpath>
-						<convertBodyTo type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
+						<convertBodyTo
+							type="com.espirit.moddev.examples.uxbridge.newsdrilldown.entity.UXBEntity" />
 						<bean ref="newsHandler" method="cleanup" />
 					</filter>
 					<to uri="adapterReturn:activemq:topic:BUS_IN?destination=mongodb" />
@@ -78,22 +74,22 @@
 		</route>
 	</camelContext>
 
-	<bean id="newsHandler" class="com.espirit.moddev.examples.uxbridge.newsdrilldown.jpa.NewsHandler">
-		<constructor-arg name="context" ref="camelContext" />
-		<constructor-arg name="responseRoute" value="activemq:topic:BUS_IN" />
+	<bean id="newsHandler"
+		class="com.espirit.moddev.examples.uxbridge.newsdrilldown.jpa.NewsHandler">
 		<constructor-arg name="port" value="27017" />
 		<constructor-arg name="host" value="localhost" />
 		<constructor-arg name="db" value="newsDrilldownExample" />
-        <constructor-arg name="webpath" value="/home/tomcat/tomcat/webapps"/>
+		<constructor-arg name="webpath" value="/home/tomcat/tomcat/webapps" />
 	</bean>
 
 	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
 		<property name="connectionFactory">
 			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
-				<property name="brokerURL" value="tcp://localhost:61616"/>
+				<property name="brokerURL" value="tcp://localhost:61616" />
 			</bean>
 		</property>
 	</bean>
-<bean id="adapterReturn" class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
+	<bean id="adapterReturn"
+		class="com.espirit.moddev.uxbridge.camel.component.AdapterReturnComponent">
 	</bean>
 </beans>

@@ -29,4 +29,5 @@ public class TimeOuts {
 	
 	/** The Constant LONG. */
 	public static final Long LONG = 10000L;
+	public static final Long SHORT = 2000L;
 }

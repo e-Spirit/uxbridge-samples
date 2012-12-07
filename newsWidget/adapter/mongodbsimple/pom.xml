@@ -18,6 +18,7 @@
 		<artifactId>uxbridge.samples.newswidget</artifactId>
 		<groupId>com.espirit.moddev</groupId>
 		<version>1</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>uxbridge.samples.newswidget.mongodbsimple</artifactId>
@@ -258,7 +259,7 @@
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0-SNAPSHOT</version><!--$NO-MVN-MAN-VER$-->
+				<version>2.0</version><!--$NO-MVN-MAN-VER$-->
 				<configuration>
 					<path>/</path>
 					<port>9093</port>
@@ -294,6 +295,7 @@
 						</configuration>
 						<executions>
 							<execution>
+							
 								<goals>
 									<goal>integration-test</goal>
 									<goal>verify</goal>

@@ -36,6 +36,7 @@ class MetaCategory {
 
 	static mapping = {
 		table "metaCategory"
+		//collection "newsMetaCategory"
 		fs_id index: "fsidindex3,IDX_fsid_lang_3"
 		language index: "IDX_fsid_lang_3"
 	}

@@ -9,9 +9,9 @@ package com.espirit.moddev.examples.uxbridge.newsdrilldown.jpa;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -38,18 +38,21 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.io.File;
 import java.io.RandomAccessFile;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
  * This class has the ability to add, delete and cleanup data records in a hibernate database
  * which might be used as content-repository for an UX-Bridge application.
- *  
+ *
  */
 @Repository
 public class NewsHandler{
@@ -70,16 +73,6 @@ public class NewsHandler{
     private EntityManagerFactory emf;
 
     /**
-     * The context.
-     */
-    private CamelContext context;
-
-    /**
-     * The response route.
-     */
-    private String responseRoute;
-
-    /**
      * The webpath.
      */
     private String webpath;
@@ -87,17 +80,10 @@ public class NewsHandler{
     /**
      * Instantiates a new news handler.
      *
-     * @param context       the context
-     * @param responseRoute the response route
      * @param emf           the emf
      * @param webpath       the webpath
      */
-    public NewsHandler(CamelContext context, String responseRoute,
-                       EntityManagerFactory emf, String webpath) {
-        this.context = context;
-
-        this.responseRoute = responseRoute;
-
+    public NewsHandler(EntityManagerFactory emf, String webpath) {
         this.emf = emf;
 
         this.webpath = webpath;
@@ -161,7 +147,9 @@ public class NewsHandler{
                         lock.channel().close();
                     } catch (OverlappingFileLockException e) {
                         logger.info("File is already locked in this thread or virtual machine");
-                    }
+                    } catch (MalformedURLException e) {
+                    	logger.info("wrong url", e);
+					}
                 }
                 // remove article from content repository
 
@@ -235,7 +223,7 @@ public class NewsHandler{
 
             tx.commit();
         } catch (Exception e) {
-            if (tx != null) {
+            if (tx != null && tx.isActive()) {
                 tx.setRollbackOnly();
             }
             logger.error("Failure while deleting from the database", e);
@@ -292,15 +280,15 @@ public class NewsHandler{
                 news.setCategories(new ArrayList<NewsCategory>());
             }
 
-            
+
             em = emf.createEntityManager();
             tx = em.getTransaction();
             tx.begin();
 
             // 2. save the newsdrilldown
             news = saveNews(news, em);
-            
-            
+
+
             // 3. read all categories to the newsdrilldown
             if (!categories.isEmpty()) {
                 for (Long cat : categories) {
@@ -308,7 +296,7 @@ public class NewsHandler{
                 	news.getCategories().add(ncat);
                 }
             }
-            
+
 
             tx.commit();
 
@@ -423,14 +411,26 @@ public class NewsHandler{
                     category.getLanguage(), em);
 
             if (cat != null) {
+
                 List<NewsMetaCategory> metaCats = category.getMetaCategories();
+
+                // the already persistent categories
+                List<NewsMetaCategory> original_metaCats = cat.getMetaCategories();
+
                 // update existing category
                 cat.setMetaCategories(new ArrayList<NewsMetaCategory>());
 
                 for (NewsMetaCategory metaCat : metaCats) {
                     metaCat = saveNewsMetaCategory(metaCat, em);
                     cat.getMetaCategories().add(metaCat);
+
+                    original_metaCats.remove(metaCat);
                 }
+                for (NewsMetaCategory mc : original_metaCats) {
+                	mc.setLastmodified(category.getLastmodified());
+                }
+                cat.getMetaCategories().addAll(original_metaCats);
+
 
                 cat.setFs_id(category.getFs_id());
                 cat.setLanguage(category.getLanguage());
@@ -545,16 +545,34 @@ public class NewsHandler{
 
         news.setCategories(new ArrayList<NewsCategory>());
         // add categories
+
+        Map<NewsCategory, List<NewsMetaCategory>> cat_metacats = new HashMap<NewsCategory, List<NewsMetaCategory>>();
+
         if (entity.getUxb_content().getMetaCategories() != null) {
             for (UXBMetaCategory uxMetaCat : entity.getUxb_content()
                     .getMetaCategories()) {
+
+            	NewsMetaCategory mcat = buildMetaCategory(uxMetaCat, entity);
+
                 if (uxMetaCat.getCategories() != null) {
                     for (UXBCategory uxCat : uxMetaCat.getCategories()) {
                         NewsCategory newsCat = buildNewsCategory(uxCat, entity);
-                        news.getCategories().add(newsCat);
+
+                        if (!cat_metacats.containsKey(newsCat)) {
+                        	cat_metacats.put(newsCat, new ArrayList<NewsMetaCategory>());
+                        }
+                        if (!cat_metacats.get(newsCat).contains(mcat)) {
+                        	cat_metacats.get(newsCat).add(mcat);
+                        }
+//                        news.getCategories().add(newsCat);
                     }
                 }
             }
+        }
+        for (NewsCategory category : cat_metacats.keySet()) {
+        	category.getMetaCategories().addAll(cat_metacats.get(category));
+
+        	news.getCategories().add(category);
         }
 
         return news;
@@ -576,6 +594,7 @@ public class NewsHandler{
         newsCat.setVersion(1);
         newsCat.setLastmodified(entity.getCreateTime());
 
+        /*
         if (entity.getUxb_content().getMetaCategories() != null) {
             for (UXBMetaCategory uxMetaCat : entity.getUxb_content()
                     .getMetaCategories()) {
@@ -583,6 +602,7 @@ public class NewsHandler{
                         buildMetaCategory(uxMetaCat, entity));
             }
         }
+        */
 
         return newsCat;
     }

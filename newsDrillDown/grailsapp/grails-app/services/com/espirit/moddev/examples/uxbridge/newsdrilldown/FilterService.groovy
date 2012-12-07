@@ -37,11 +37,13 @@ class FilterService {
 				listAll = false
 				def categories = params.categories.split("cat_")
 				categories.each { // iterate over all categories and add all their newsdrilldown to the newInstanceList if the category can be found
-					if(Category.get(it) ) {
-						def result = filterForCategory(it)
-						newsInstanceList += result.newsInstanceList
-					} else {
-						msg = "noCategory"
+					if (it != null && !it.equals("")) {
+						if(Category.get(it) ) {
+							def result = filterForCategory(it)
+							newsInstanceList += result.newsInstanceList
+						} else {
+							msg = "noCategory"
+						}
 					}
 				}
 				newsInstanceList = newsInstanceList.unique {
@@ -76,7 +78,18 @@ class FilterService {
 	}
 
     def filterForCategory(categoryId) {
-		def newsInstanceList = Category.get(categoryId).news
+		
+		def category = Category.get(categoryId)
+		
+		def newsInstanceList = []//News.findAllByCategory(category) //Category.get(categoryId).news
+		News.list().each { it -> 
+			it.categories.iterator().each { it2 ->
+				if (it2.id == Long.parseLong(categoryId)) {
+					newsInstanceList.add(it)
+				}
+			}
+		}
+		
 		def newsInstanceTotal = newsInstanceList.size()
 		
 		return [newsInstanceList: newsInstanceList, newsInstanceTotal: newsInstanceTotal]

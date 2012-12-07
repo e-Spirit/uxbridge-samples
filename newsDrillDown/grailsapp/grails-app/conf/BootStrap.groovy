@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,22 +24,22 @@ import com.espirit.moddev.examples.uxbridge.newsdrilldown.MetaCategory
 import com.espirit.moddev.examples.uxbridge.newsdrilldown.News
 
 class BootStrap {
-	
+
 	def grailsApplication
 
 	private static String subject = "TESTQUEUE"
 
 	def init = { servletContext ->
 		if (Environment.current == Environment.DEVELOPMENT || Environment.current == Environment.TEST || Environment.current == Environment.CUSTOM) {
-			developmentData()
+//			developmentData()
 		}
 	}
-	
+
 	def destroy = {
 	}
-	
+
 	def developmentData() {
-		
+
 		if (Environment.current != Environment.PRODUCTION) {
 			MetaCategory.findAll().each { temp ->
 				temp.delete()
@@ -53,27 +53,34 @@ class BootStrap {
 		}
 
 		if (Environment.current != Environment.PRODUCTION) {
-			
+
 			def languages = ["EN", "DE"];
-			
+
 			for (lang in languages) {
 				// Create MetaCategories
 				MetaCategory sports = new MetaCategory(fs_id: 1, name: lang == "EN" ? "Sports" : "Sport", language: lang, lastmodified: 1).save(flush: true, failOnError: true)
 				MetaCategory economy = new MetaCategory(fs_id: 2, name: lang == "EN" ? "Economy" : "Wirtschaft", language: lang, lastmodified: 1).save(flush: true, failOnError: true)
-				
+
 				// Create Categories
 				Category soccer = new Category(fs_id : 1, name: lang == "EN" ? "Soccer" : "Fußball", language: lang, lastmodified: 1).addToMetaCategories(sports).save(flush: true, failOnError: true)
 				Category sailing = new Category(fs_id : 2, name: lang == "EN" ? "Sailing" : "Segeln", language: lang, lastmodified: 1).addToMetaCategories(sports).save(flush: true, failOnError: true)
 				Category dax = new Category(fs_id : 3, name: "DAX", language: lang, lastmodified: 1).addToMetaCategories(economy).save(flush: true, failOnError: true)
 				Category wallStreet = new Category(fs_id : 4, name : "Wall Street", language: lang, lastmodified: 1).addToMetaCategories(economy).save(flush: true, failOnError: true)
+
+				
+				sports.addToCategories(soccer)
+				sports.addToCategories(sailing).save(flush: true, failOnError: true)
+				
+				economy.addToCategories(dax)
+				economy.addToCategories(wallStreet).save(flush: true, failOnError: true)
 				
 				// Create newsdrilldown articles
 				def id_list = [128, 130, 131, 132, 256]
-	
+
 				for (i in id_list) {
 					Calendar cal = Calendar.instance
 					cal.add(Calendar.MINUTE, (int) i)
-	
+
 					String headline = "This is the title of $i"
 					String subheadline = "This is the subheadline of $i"
 					String teaser = "This is the teaser of $i"
@@ -121,7 +128,7 @@ class BootStrap {
 						fs_id = 256
 						category = sailing
 					}
-					
+
 					def n = new News(fs_id: fs_id, headline: headline, subheadline: subheadline, teaser: teaser, content: "This content belongs to $i", date: cal.time, url: url, language: lang, lastmodified: 1).addToCategories(category)
 					if (i == 256) {
 						n.addToCategories(soccer);
