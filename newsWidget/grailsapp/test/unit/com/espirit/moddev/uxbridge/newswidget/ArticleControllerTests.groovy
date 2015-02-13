@@ -24,24 +24,25 @@ import com.espirit.moddev.uxbridge.Article;
 
 
 import grails.test.mixin.*
+import spock.lang.Specification
 
 @TestFor(ArticleController)
 @Mock(Article)
-class ArticleControllerTests {
+class ArticleControllerTests extends Specification {
 
 
     def populateValidParams(params) {
-      assert params != null
-	  Calendar cal = Calendar.instance
-	  cal.add(Calendar.MINUTE, (int)1)
+		assert params != null
+		Calendar cal = Calendar.instance
+		cal.add(Calendar.MINUTE, (int)1)
 
-	  params["aid"] = 1
-	  params["content"] = "Content"
-	  params["title"] = "title"
-	  params["created"] = cal.time
-	  params["url"] = "none"
-	  params["language"] = "DE"
-      params["lastmodified"] = 0
+		params["aid"] = 1
+		params["content"] = "Content"
+		params["title"] = "title"
+		params["created"] = cal.time
+		params["url"] = "none"
+		params["language"] = "DE"
+		params["lastmodified"] = 0
     }
 
     void testIndex() {
@@ -58,25 +59,9 @@ class ArticleControllerTests {
     }
 
     void testCreate() {
-       def model = controller.create()
+		def model = controller.create()
 
-       assert model.articleInstance != null
-    }
-
-    void testSave() {
-        controller.save()
-
-        assert model.articleInstance != null
-        assert view == '/article/create'
-
-        response.reset()
-
-        populateValidParams(params)
-        controller.save()
-
-        assert response.redirectedUrl == '/article/show/1'
-        assert controller.flash.message != null
-        assert Article.count() == 1
+		assert model.articleInstance != null
     }
 
     void testShow() {

@@ -18,7 +18,7 @@
 		<module>mongodb</module>
 	</modules>
 
-  
+
 	<dependencyManagement>
 		<dependencies>
 		</dependencies>
@@ -28,7 +28,7 @@
         <camel.version>2.10.0</camel.version>
         <activemq.version>5.6.0</activemq.version>
         <commons.io.version>1.4</commons.io.version>
-        <uxbridge.version>1.2.2.1127</uxbridge.version>
+        <uxbridge.version>1.4.0.1253</uxbridge.version>
 	</properties>
 
 

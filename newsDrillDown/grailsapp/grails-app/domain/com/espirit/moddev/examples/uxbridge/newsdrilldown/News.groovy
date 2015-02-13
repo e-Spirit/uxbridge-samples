@@ -55,7 +55,9 @@ class News implements Comparable<News> {
 	}
 
 	static belongsTo = Category
-	static hasMany = [categories:Category]
+	static hasMany = [
+		categories:Category
+	]
 
 	static constraints = {
 		fs_id(blank: false, nullable: false)

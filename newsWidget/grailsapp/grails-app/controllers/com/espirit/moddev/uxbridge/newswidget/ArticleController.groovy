@@ -40,14 +40,15 @@ class ArticleController {
     }
 
     def save() {
-        def articleInstance = new Article(params)
-        if (!articleInstance.save(flush: true)) {
-            render(view: "create", model: [articleInstance: articleInstance])
-            return
+        def article = new Article(params)
+		
+		if (article.save(flush: true)) {
+			flash.message = message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), article.id])
+			redirect(action: "show", id: article.id)
         }
-
-		flash.message = message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), articleInstance.id])
-        redirect(action: "show", id: articleInstance.id)
+        else {
+			render(view: "create", model: [articleInstance: article])
+        }
     }
 
     def show() {

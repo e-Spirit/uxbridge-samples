@@ -53,6 +53,8 @@ grails.project.dependency.resolution = {
 
 		compile 'postgresql:postgresql:8.4-702.jdbc4'
 		runtime 'mysql:mysql-connector-java:5.1.18'
+		runtime 'cglib:cglib:2.2.2'
+		compile 'commons-io:commons-io:2.4'
 
         //runtime 'org.slf4j:slf4j-api:1.6.1'
         //runtime 'org.slf4j:slf4j-log4j12:1.6.1'
@@ -61,14 +63,16 @@ grails.project.dependency.resolution = {
     }
 	
 	plugins {
-		runtime ":hibernate:2.1.0"
-		runtime ":jquery:1.7.1"
-		runtime ":resources:1.1.6"
+		runtime ':hibernate:3.6.10.18'
+		runtime ":jquery:1.11.1"
+		runtime ":resources:1.2.14"
 
-		compile ":webxml:1.4.1"
+//		compile ":webxml:1.4.1"
 
-		build ":tomcat:2.1.0"
-		test ":spock:0.6"
+		compile ":mongodb:3.0.2"
+		
+		build ":tomcat:8.0.15"
+		//test ":spock:0.7"
 	}
 
     //needed to avoid classloading conflicts on tomcat7

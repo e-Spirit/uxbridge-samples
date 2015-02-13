@@ -32,7 +32,9 @@ class MetaCategory {
 	String language
 	Long lastmodified=new Date().getTime()
 
-	static hasMany = [categories:Category]
+	static hasMany = [
+		categories:Category
+	]
 
 	static mapping = {
 		table "metaCategory"

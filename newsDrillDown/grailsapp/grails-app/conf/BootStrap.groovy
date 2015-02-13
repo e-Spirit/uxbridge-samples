@@ -23,6 +23,8 @@ import com.espirit.moddev.examples.uxbridge.newsdrilldown.Category
 import com.espirit.moddev.examples.uxbridge.newsdrilldown.MetaCategory
 import com.espirit.moddev.examples.uxbridge.newsdrilldown.News
 
+import grails.util.Holders
+
 class BootStrap {
 
 	def grailsApplication
@@ -31,7 +33,7 @@ class BootStrap {
 
 	def init = { servletContext ->
 		if (Environment.current == Environment.DEVELOPMENT || Environment.current == Environment.TEST || Environment.current == Environment.CUSTOM) {
-//			developmentData()
+			developmentData()
 		}
 	}
 
@@ -51,6 +53,10 @@ class BootStrap {
 				temp.delete()
 			}
 		}
+		
+		def config = Holders.config
+		def fsUrl = config.firstspirit.newsUrl;
+		println fsUrl
 
 		if (Environment.current != Environment.PRODUCTION) {
 
@@ -92,39 +98,42 @@ class BootStrap {
 					String url = null
 					Long fs_id = null
 					Category category = null
+					
+					
+					
 					if (i == 128) {
 //						headline = "Mithras Energy receives solar prize from the City of Sonningen"
 //						subheadline = "Constant innovation pays"
 //						teaser = "Mithras Energy was awarded the Sonnigen Solar Prize by Mayor Karl-Heinz Schmidt during an official ceremony. The prize honours the company and its constant commitment to solar energy in German speaking countries. The managing director of Mithras Energy received this prize gratefully: We are pleased that the effort we have been making for years has become known beyond the boundaries of industry and do all that we can to ensure our efforts are communicated even further still."
-						url = grailsApplication.config.firstspirit.newsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_128.html"
+						url = fsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_128.html"
 						fs_id = 128
 						category = soccer
 					} else if (i == 130) {
 //						headline = "New Director of Mithras Energy"
 //						subheadline = "Hans Energie reinforces the executive management of the Sonninger company"
 //						teaser = "Since 1 January 2008, the executive management of Mithras Energy Solartechnik GmbH has been reinforced by Hans Energie. This is the company's response to the growth of recent months and reflects the success of the company."
-						url = grailsApplication.config.firstspirit.newsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_130.html"
+						url = fsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_130.html"
 						fs_id = 130
 						category = dax
 					} else if (i == 131) {
 //						headline = "Solar diversity"
 //						subheadline = "Widespread use of mono-crystalline modules"
 //						teaser = "Mono-crystalline modules are the so-called all-rounders of the solar industry. Due to their compact design and high output, these modules are optimally suitable for both PV systems for residential use, large systems on pitched roofs or even for mobile use. The anodised housing frame is reinforced and, together with the special hardened front glass, forms an outstanding protection unit for extreme weather conditions."
-						url = grailsApplication.config.firstspirit.newsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_131.html"
+						url = fsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_131.html"
 						fs_id = 131
 						category = dax
 					} else if (i == 132) {
 //						headline = "New product range"
 //						subheadline = "Thin film modules are gaining ground"
 //						teaser = "The thin film modules in our new product range are particularly recommended for highly fluctuating weather conditions. Whether in high temperatures or diffuse light conditions, the modules have a consistently uniform production capacity. The amorphous silicon layer enables efficiencies of around 20 % to be achieved as, among other things, light soaking effects are prevented."
-						url = grailsApplication.config.firstspirit.newsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_132.html"
+						url = fsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_132.html"
 						fs_id = 132
 						category = dax
 					} else if (i == 256) {
 //						headline = "Mithras Energy again awarded the Solar Prize of the City of Sonningen"
 //						subheadline = "The thin film modules have now been honoured too"
 //						teaser = "As in 2007, Mithras Energy received the Solar Price of the City of Sonningen in 2008 too. This year the accolades were focussed on the thin film modules: the prize was accepted by the management and workforce of Mithras Energy at an official event at the end of the year. The newly developed tandem structure has increased the effectiveness of the modules by 15 %."
-						url = grailsApplication.config.firstspirit.newsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_256.html"
+						url = fsUrl + "/mithras_news_drilldown/content/en/press/pressreleases/press_releases_details_256.html"
 						fs_id = 256
 						category = sailing
 					}

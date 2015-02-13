@@ -21,6 +21,9 @@ package com.espirit.moddev.examples.uxbridge.newsdrilldown;
  */
 
 import javax.net.ssl.HttpsURLConnection
+
+import java.net.*;
+
 class RenderService {
 	InputStream is = null;
 	String s = null;

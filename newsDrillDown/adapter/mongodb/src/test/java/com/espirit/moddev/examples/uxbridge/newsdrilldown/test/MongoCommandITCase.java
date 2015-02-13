@@ -94,7 +94,7 @@ public class MongoCommandITCase extends BaseTest {
         camelContext.start();
 
         m = new Mongo("localhost", 2307);
-//        m = new Mongo("localhost", 27017);
+        //m = new Mongo("localhost", 27017);
         DB db = m.getDB("uxbridge_mongo_test");
         dbNews = db.getCollection("news");
         dbCategories = db.getCollection("category");
